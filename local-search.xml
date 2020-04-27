@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>给小小白的python3安装说明</title>
+    <link href="/2020/04/27/%E7%BB%99%E5%B0%8F%E5%B0%8F%E7%99%BD%E7%9A%84python3%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/"/>
+    <url>/2020/04/27/%E7%BB%99%E5%B0%8F%E5%B0%8F%E7%99%BD%E7%9A%84python3%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/</url>
+    
+    <content type="html"><![CDATA[<p>给小小的，白白的，python3包教包会指南。</p><a id="more"></a><h2 id="第一步，开启并且配置wsl"><a href="#第一步，开启并且配置wsl" class="headerlink" title="第一步，开启并且配置wsl"></a>第一步，开启并且配置wsl</h2><h3 id="为什么使用wsl"><a href="#为什么使用wsl" class="headerlink" title="为什么使用wsl"></a>为什么使用wsl</h3><ol><li>自带python3，和git。</li><li>易于解决因为GFW，导致下载速度过慢的bug</li></ol><h3 id="前置操作"><a href="#前置操作" class="headerlink" title="前置操作"></a>前置操作</h3><ol><li><p>win+q，输入控制面板，</p></li><li><p>打开控制面板，点击程序</p></li><li><p>在程序和功能一栏，可以看见启用或关闭Windows功能，点击它</p></li><li><p>选择适用于Linux的Windows子系统</p></li><li><p>重启电脑</p></li><li><p>win+q，输入应用商店，回车</p></li><li><p>选择Ubuntu，安装</p></li><li><p>win+q，输入wsl，回车。设置基本信息<strong>注意，输入密码是看不见东西是Linux系统的正常现象</strong></p></li></ol><h3 id="注意！！"><a href="#注意！！" class="headerlink" title="注意！！"></a>注意！！</h3><p>此时你已经可以使用命令 </p><pre><code class="hljs bash">python3</code></pre><p>来进行python3的学习了，</p><p>若想要退出输入exit(),即可<br>下面的内容是后期调包，安装vscode等操作要用到的</p><h3 id="进行配置"><a href="#进行配置" class="headerlink" title="进行配置"></a>进行配置</h3><p><em>目的是避免GFW</em></p><p>输入命令</p><pre><code class="hljs bash">sudo vim /etc/apt/sources.list</code></pre><p>然后输入刚刚的密码<br>进入文件后，莫慌。<br>注意自己的输入法是不是在英文模式。<br>不是，就先调成是<br>先观察文件里有没有aliyun的字样<strong>也可以输入gg/aliyun 回车。看有没有选中文字</strong><br>如果有，请跳到下一部分。<br>如果没有，请看下文<br>输入ggdG<strong>注意大小写，用于清空文件</strong><br>之后按esc</p><p>之后复制下面这段文字</p><pre><code class="hljs bash">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiversedeb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiversedeb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</code></pre><p>然后在wsl里按‘i’，接着右键，之后 输入<br>之后按esc</p><pre><code class="hljs bash">:wq</code></pre><p>接着输入命令</p><pre><code class="hljs bash">sudo apt-get update</code></pre><h3 id="后续工作"><a href="#后续工作" class="headerlink" title="后续工作"></a>后续工作</h3><pre><code class="hljs bash">sudo apt-get install code <span class="hljs-comment">#安装VScode</span></code></pre><pre><code class="hljs bash">sudo apt-get install python3-pip <span class="hljs-comment">#安装包管理器</span></code></pre><pre><code class="hljs bash">sudo mkdir ~/.pip<span class="hljs-built_in">cd</span> ~/.pipvim pip.conf</code></pre><p>复制下面内容</p><pre><code class="hljs bsah">[global]index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple[install]trusted-host&#x3D;mirrors.aliyun.com</code></pre><p>在wsl里右键</p><p>然后esc，之后输入</p><pre><code class="hljs bash">:wq</code></pre><p>之后//此步大该可以跳过吧……</p><pre><code class="hljs bash">pip3 install flake8pip3 install yapf</code></pre><p>安装两个插件</p><p>下一步为</p><pre><code class="hljs bash">code</code></pre><p>进入vscode界面后<br>Ctrl+Shift+X</p><p>若界面为汉语，则在搜索栏输入python<br>若为英语，则先zh-CN，安装，再搜索python<br>安装python。</p><p>Ctrl+Shift+E</p><p>新建一个文件夹。<br>然后应该能看到settings.json这个文件，</p><p>输入以下内容</p><pre><code class="hljs json">&#123;    <span class="hljs-attr">"python.linting.flake8Enabled"</span>: <span class="hljs-literal">true</span>,    <span class="hljs-attr">"python.formatting.provider"</span>: <span class="hljs-string">"yapf"</span>,    <span class="hljs-attr">"python.linting.flake8Args"</span>: [<span class="hljs-string">"--max-line-length=248"</span>],    <span class="hljs-attr">"python.linting.pylintEnabled"</span>: <span class="hljs-literal">false</span>&#125;</code></pre><p>然后在 .vscode 文件夹外 <em>也就是你新建的这个文件夹</em>新建一个 .py文件<br>此时python插件会提醒你少几项配置，你选择分别yapf和flake8即可。若跳过了前面的那步，也是选择yapf和flake8，它会自动通过pip下载。如果下载失败……你可以考虑复制他的命令然后改成pip3试试……。</p><p>之后就可以开心写py文件了，代码补全啊，实时纠错也都有了，报错不知道怎么改把鼠标移动上去有错误代码，然后浏览器搜索一下就可以了。<br>Alt+Shift+F是自动格式化代码。</p><p>(ง •_•)ง</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>python3</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>python3</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>疫情期间的重逢</title>
     <link href="/2020/04/27/%E7%96%AB%E6%83%85%E6%9C%9F%E9%97%B4%E7%9A%84%E9%87%8D%E9%80%A2/"/>
     <url>/2020/04/27/%E7%96%AB%E6%83%85%E6%9C%9F%E9%97%B4%E7%9A%84%E9%87%8D%E9%80%A2/</url>
@@ -20,7 +47,9 @@
     
     <tags>
       
-      <tag>生活， yjz</tag>
+      <tag>生活</tag>
+      
+      <tag>yjz</tag>
       
     </tags>
     

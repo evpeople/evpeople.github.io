@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>疫情期间的重逢 - 某人写字的地方</title>
+  <title>给小小白的python3安装说明 - 某人写字的地方</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -141,8 +141,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-04-27 11:00">
-                    星期一, 四月 27日 2020, 11:00 上午
+                  <time datetime="2020-04-27 13:18">
+                    星期一, 四月 27日 2020, 1:18 下午
                   </time>
                 </div>
               
@@ -152,7 +152,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    781 字
+                    853 字
                   </span>
                 
 
@@ -162,7 +162,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    7
+                    11
                      分钟
                   </span>
                 
@@ -191,23 +191,104 @@
           <div class="post-content mx-auto" id="post">
             
               <p class="note note-warning">
-                本文最后更新于：星期一, 四月 27日 2020, 1:19 下午
+                本文最后更新于：星期一, 四月 27日 2020, 2:20 下午
               </p>
             
             <article class="markdown-body">
-              <p>从未想过，再次见面是在这样的时间，这样的地点，做着这样的事情</p>
+              <p>给小小的，白白的，python3包教包会指南。</p>
 <a id="more"></a>
 
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>在高考完的暑假里，我送你到了楼下，以为那就是所谓的永别吧。此去经年，不知何时再见，不知能否再见。</p>
-<p>纪老师辗转通过我拿到了你的成绩，我知道，不理想。我也不敢跟你多说些什么，纪老师也不敢。<br>填报志愿，在等待练车的时候，从手机上刷着东南，北邮，似乎在比较着到底要去哪一所学校生活四年，但心里一直有个声音在想着，哪一所能离你近一些。于是终于大胆的询问，于是你告诉了我要留在北京，于是我兴高采烈选择了北邮。梦想与你多么巧合，实现了统一。我不必纠结。</p>
-<p>录取结果悄悄出来了，我如愿留在了北京，第一志愿，第一专业。比专业的录取分数线高了一两分的样子。我很满意。可是你留在天津，我有些失落。算了，京津冀一体化嘛，总是有见面的机会。</p>
-<h2 id="徘徊"><a href="#徘徊" class="headerlink" title="徘徊"></a>徘徊</h2><p>大一上学期，我想要去找你，可是我好懒好懒，好忙好忙。周六日在做志愿，准备考试之间徘徊。唯一有机会的国庆，也黄了。我在国庆的时候关注了你们学校的公众号，希望找到国旗护卫队的高清照片，未果。</p>
-<p><del>整个大一学期，我时常怀疑的事情就是你到底每天都在干些什么，为什么我从来收不到消息的回复。如果厌烦，为什么不直接说出来。我是不是舔上瘾了</del></p>
-<p>只能以你不喜欢即时通讯软件来放松自己，一次又一次。</p>
-<p>啊，日子就这么过去，一天又一天，一月又一月。寒假，你不在天津。我不在天津，见面未果。</p>
-<p>一天又一天，我以为自己已经全然放弃，直到那个周三，躺着玩手机的我居然收到了你主动发来的消息。那一下午的喜悦明明白白告诉我，不，我没有。</p>
-<h2 id="终结"><a href="#终结" class="headerlink" title="终结"></a>终结</h2><p>然后就是见面了。<br>你和以前一模一样，端坐着，沉迷在题海中，我突然释怀，这样的人，真的没有时间回复消息吧，毕竟，聊天真的是耗时很高的大工程呢。<br>我也突然发现，我与以前，变化了太多，欣然认命，向生活低头，完全没有了你那样的冲劲闯劲，闲适的大学生活，堆积的ddl，<del>懒散的同学</del>，彻底改变了我，我再也没有那么近的接触一个你这样的人。我变得懒散的心安理得。我开心的接受我是菜鸡，并在鸡窝里开心睡着懒觉。我变了。</p>
-<h2 id="之后"><a href="#之后" class="headerlink" title="之后"></a>之后</h2><p>原来我身边也有你这样的人，原来懒散的只有我一个人，原来……<br>我不能再心安理得。<br>不能再得过且过。<br>有你督促，<br>真好</p>
+<h2 id="第一步，开启并且配置wsl"><a href="#第一步，开启并且配置wsl" class="headerlink" title="第一步，开启并且配置wsl"></a>第一步，开启并且配置wsl</h2><h3 id="为什么使用wsl"><a href="#为什么使用wsl" class="headerlink" title="为什么使用wsl"></a>为什么使用wsl</h3><ol>
+<li>自带python3，和git。</li>
+<li>易于解决因为GFW，导致下载速度过慢的bug</li>
+</ol>
+<h3 id="前置操作"><a href="#前置操作" class="headerlink" title="前置操作"></a>前置操作</h3><ol>
+<li><p>win+q，输入控制面板，</p>
+</li>
+<li><p>打开控制面板，点击程序</p>
+</li>
+<li><p>在程序和功能一栏，可以看见启用或关闭Windows功能，点击它</p>
+</li>
+<li><p>选择适用于Linux的Windows子系统</p>
+</li>
+<li><p>重启电脑</p>
+</li>
+<li><p>win+q，输入应用商店，回车</p>
+</li>
+<li><p>选择Ubuntu，安装</p>
+</li>
+<li><p>win+q，输入wsl，回车。设置基本信息<strong>注意，输入密码是看不见东西是Linux系统的正常现象</strong></p>
+</li>
+</ol>
+<h3 id="注意！！"><a href="#注意！！" class="headerlink" title="注意！！"></a>注意！！</h3><p>此时你已经可以使用命令 </p>
+<pre><code class="hljs bash">python3</code></pre>
+
+<p>来进行python3的学习了，</p>
+<p>若想要退出输入exit(),即可<br>下面的内容是后期调包，安装vscode等操作要用到的</p>
+<h3 id="进行配置"><a href="#进行配置" class="headerlink" title="进行配置"></a>进行配置</h3><p><em>目的是避免GFW</em></p>
+<p>输入命令</p>
+<pre><code class="hljs bash">sudo vim /etc/apt/sources.list</code></pre>
+
+<p>然后输入刚刚的密码<br>进入文件后，莫慌。<br>注意自己的输入法是不是在英文模式。<br>不是，就先调成是<br>先观察文件里有没有aliyun的字样<strong>也可以输入gg/aliyun 回车。看有没有选中文字</strong><br>如果有，请跳到下一部分。<br>如果没有，请看下文<br>输入ggdG<strong>注意大小写，用于清空文件</strong><br>之后按esc</p>
+<p>之后复制下面这段文字</p>
+<pre><code class="hljs bash">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</code></pre>
+
+<p>然后在wsl里按‘i’，接着右键，之后 输入<br>之后按esc</p>
+<pre><code class="hljs bash">:wq</code></pre>
+
+<p>接着输入命令</p>
+<pre><code class="hljs bash">sudo apt-get update</code></pre>
+
+<h3 id="后续工作"><a href="#后续工作" class="headerlink" title="后续工作"></a>后续工作</h3><pre><code class="hljs bash">sudo apt-get install code <span class="hljs-comment">#安装VScode</span></code></pre>
+
+<pre><code class="hljs bash">sudo apt-get install python3-pip <span class="hljs-comment">#安装包管理器</span></code></pre>
+
+<pre><code class="hljs bash">sudo mkdir ~/.pip
+<span class="hljs-built_in">cd</span> ~/.pip
+vim pip.conf</code></pre>
+
+<p>复制下面内容</p>
+<pre><code class="hljs bsah">[global]
+index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple
+[install]
+trusted-host&#x3D;mirrors.aliyun.com</code></pre>
+
+<p>在wsl里右键</p>
+<p>然后esc，之后输入</p>
+<pre><code class="hljs bash">:wq</code></pre>
+
+<p>之后//此步大该可以跳过吧……</p>
+<pre><code class="hljs bash">pip3 install flake8
+pip3 install yapf</code></pre>
+
+<p>安装两个插件</p>
+<p>下一步为</p>
+<pre><code class="hljs bash">code</code></pre>
+
+<p>进入vscode界面后<br>Ctrl+Shift+X</p>
+<p>若界面为汉语，则在搜索栏输入python<br>若为英语，则先zh-CN，安装，再搜索python<br>安装python。</p>
+<p>Ctrl+Shift+E</p>
+<p>新建一个文件夹。<br>然后应该能看到settings.json这个文件，</p>
+<p>输入以下内容</p>
+<pre><code class="hljs json">&#123;
+    <span class="hljs-attr">"python.linting.flake8Enabled"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"python.formatting.provider"</span>: <span class="hljs-string">"yapf"</span>,
+    <span class="hljs-attr">"python.linting.flake8Args"</span>: [<span class="hljs-string">"--max-line-length=248"</span>],
+    <span class="hljs-attr">"python.linting.pylintEnabled"</span>: <span class="hljs-literal">false</span>
+&#125;</code></pre>
+
+<p>然后在 .vscode 文件夹外 <em>也就是你新建的这个文件夹</em>新建一个 .py文件<br>此时python插件会提醒你少几项配置，你选择分别yapf和flake8即可。若跳过了前面的那步，也是选择yapf和flake8，它会自动通过pip下载。如果下载失败……你可以考虑复制他的命令然后改成pip3试试……。</p>
+<p>之后就可以开心写py文件了，代码补全啊，实时纠错也都有了，报错不知道怎么改把鼠标移动上去有错误代码，然后浏览器搜索一下就可以了。<br>Alt+Shift+F是自动格式化代码。</p>
+<p>(ง •_•)ง</p>
 
             </article>
             <hr>
@@ -217,7 +298,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+                      <a class="hover-with-bg" href="/categories/python3/">python3</a>
                     
                   </div>
                 
@@ -225,9 +306,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
                     
-                      <a class="hover-with-bg" href="/tags/yjz/">yjz</a>
+                      <a class="hover-with-bg" href="/tags/python3/">python3</a>
                     
                   </div>
                 
@@ -240,18 +321,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/04/27/%E7%BB%99%E5%B0%8F%E5%B0%8F%E7%99%BD%E7%9A%84python3%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">给小小白的python3安装说明</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/04/26/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2020/04/27/%E7%96%AB%E6%83%85%E6%9C%9F%E9%97%B4%E7%9A%84%E9%87%8D%E9%80%A2/">
+                        <span class="hidden-mobile">疫情期间的重逢</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -410,7 +485,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "疫情期间的重逢&nbsp;",
+        "给小小白的python3安装说明&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
