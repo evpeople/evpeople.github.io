@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/evpeople/imageOfMyBlog@v/source/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/evpeople/imageOfMyBlog@v/source/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>电磁 - 某人写字的地方</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>我写字的地方</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/evpeople/imageOfMyBlog@v/source/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-05-08 14:40">
+                    星期五, 五月 8日 2020, 2:40 下午
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    5k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    54
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：15 分钟前
+                
+              </p>
+            
+            <article class="markdown-body">
+              <p>关于电磁学的笔记</p>
+<a id="more"></a>
+
+
+<h1 id="圆盘"><a href="#圆盘" class="headerlink" title="圆盘"></a>圆盘</h1><h2 id="半径超大，无限大薄板"><a href="#半径超大，无限大薄板" class="headerlink" title="半径超大，无限大薄板"></a>半径超大，无限大薄板</h2><p>E=σ/2ε0</p>
+<h1 id="平行板电容器"><a href="#平行板电容器" class="headerlink" title="平行板电容器"></a>平行板电容器</h1><p>两板间，E=σ/ε0<br>两版外场强，为0</p>
+<h1 id="带电厚板"><a href="#带电厚板" class="headerlink" title="带电厚板"></a>带电厚板</h1><p>处理方法，切片后积分</p>
+<p>板外  ρe/2ε0<br>板内 不匀强</p>
+<h1 id="补偿法"><a href="#补偿法" class="headerlink" title="补偿法"></a>补偿法</h1><p>具体表述，大减小。</p>
+<h1 id="叠加原理"><a href="#叠加原理" class="headerlink" title="叠加原理"></a>叠加原理</h1><p>点电荷 圆环 圆盘 大平板<br>点电荷 圆环 球面 球体<br>点电荷 直导线 柱面 柱体<br>点电荷 直导线 大平面</p>
+<h1 id="理想模型"><a href="#理想模型" class="headerlink" title="理想模型"></a>理想模型</h1><p>点电荷<br>电偶极子<br>无限长直线<br>无限大平面</p>
+<h1 id="电通量-高斯定理"><a href="#电通量-高斯定理" class="headerlink" title="电通量 高斯定理"></a>电通量 高斯定理</h1><p>有对称性<br>第二种计算场强的办法</p>
+<h2 id="电通量"><a href="#电通量" class="headerlink" title="电通量"></a>电通量</h2><h3 id="电场线"><a href="#电场线" class="headerlink" title="电场线"></a>电场线</h3><p>切线方向是场强方向<br>疏密是大小<br>不能相交<br>不会在没有电荷的地方中断</p>
+<h4 id="电场线密度"><a href="#电场线密度" class="headerlink" title="电场线密度"></a>电场线密度</h4><p>穿过垂直于电场线的面积元的条数/面积，反应电场线疏密程度，反应场强大小。</p>
+<h4 id="静电场电场线"><a href="#静电场电场线" class="headerlink" title="静电场电场线"></a>静电场电场线</h4><p>有头有尾，起始于正，终结于负.</p>
+<h3 id="电场强度通量"><a href="#电场强度通量" class="headerlink" title="电场强度通量"></a>电场强度通量</h3><p>面积矢量，大小是面积，方向是法向<br>Φ=E·S。</p>
+<p>Φ为标量，有正负。</p>
+<h4 id="非均匀电场的电通量"><a href="#非均匀电场的电通量" class="headerlink" title="非均匀电场的电通量"></a>非均匀电场的电通量</h4><p>dΦ=E·dS</p>
+<p>非闭合曲面方向自选<br>闭合曲面方向，外法线方向为正。<br>穿入为负，穿出为正。</p>
+<p>穿过闭合曲面体的电通量为0.</p>
+<blockquote>
+<p><em>穿过闭合曲面的电通量，等于该曲面所包围的电荷代数和除以ε。与曲面外电荷无关，当写成 EdS的时候，E是由所有电荷产生的场强，是面上的场强</em></p>
+</blockquote>
+<p>上为静电场的高斯定理。</p>
+<blockquote>
+<p>Φ为0，但E不一定为0.<br>Φ&gt;0,有净传出，内部有正电荷。<br>Φ&lt;0，有净传入，内部有负电荷。</p>
+</blockquote>
+<h4 id="高斯定理的导出"><a href="#高斯定理的导出" class="headerlink" title="高斯定理的导出"></a>高斯定理的导出</h4><p>库仑定律+场强叠加原理。</p>
+<ul>
+<li>单个点电荷<br>q在球心处。<br>Φ=q/ε</li>
+<li>点电荷系</li>
+<li>连续分布的源电荷</li>
+</ul>
+<h4 id="高斯定理的应用"><a href="#高斯定理的应用" class="headerlink" title="高斯定理的应用"></a>高斯定理的应用</h4><h5 id="计算带电体周围的电场强度"><a href="#计算带电体周围的电场强度" class="headerlink" title="计算带电体周围的电场强度"></a>计算带电体周围的电场强度</h5><p>选取适当高斯面</p>
+<blockquote>
+<p>适当高斯面一号：高斯面上各面元的法线方向与场强方向平行，且E的大小处处相等。</p>
+</blockquote>
+<p>此时Φ=ES</p>
+<blockquote>
+<p>适当高斯面二号：部分垂直，部分平行且大小处处相等。</p>
+</blockquote>
+<p>此时Φ=ES平行</p>
+<p><strong><em>有对称性才能用高斯定理</em></strong></p>
+<ol>
+<li>球对称 均匀带电的球面球体多层同心球壳</li>
+<li>轴对称 无限长均匀带电的直线，圆柱面，圆柱体</li>
+<li>面对称 无限大的均匀带电的平面平板</li>
+</ol>
+<p>3月27日</p>
+<h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><h2 id="例一"><a href="#例一" class="headerlink" title="例一"></a>例一</h2><p>无限大均匀带电平面 σ/2ε0<br>用高斯定理做</p>
+<blockquote>
+<p><em>穿过闭合曲面的电通量，等于该曲面所包围的电荷代数和除以ε。与曲面外电荷无关，当写成 EdS的时候，E是由所有电荷产生的场强，是面上的场强</em></p>
+</blockquote>
+<ol>
+<li>对称性分析，判断出方向垂直平面。</li>
+<li>画适当高斯面，柱形高斯面。（满足高斯面二号</li>
+<li>计算，侧面高斯面垂直，为0，左底面，右底面直接等于ES，和等于2ES。</li>
+<li>φ=2ES，由高斯定理得到2ES=σS/ε0，得出答案。</li>
+<li>平面上，为0</li>
+</ol>
+<h2 id="例二"><a href="#例二" class="headerlink" title="例二"></a>例二</h2><p>无限大带电厚板。</p>
+<ol>
+<li>分为板外板内的场强</li>
+<li>板外E=ρd/2ε0</li>
+<li>板内E=ρx/ε0</li>
+</ol>
+<h2 id="例三"><a href="#例三" class="headerlink" title="例三"></a>例三</h2><p>均匀带电球面</p>
+<ol>
+<li>分析场强方向</li>
+<li>画高斯面 同心球面半径r</li>
+<li>E4Πr^2=q总/ε0</li>
+<li>分为球面内，球面外</li>
+<li>球面外，等效为点电荷</li>
+<li>球面内，q=0 E=0</li>
+<li>球面上，同无限大平面</li>
+</ol>
+<h2 id="例四"><a href="#例四" class="headerlink" title="例四"></a>例四</h2><p>均匀带电球体</p>
+<p>同面，但内部由电场 球外E=ρ/3ε0  *R^3/r^2<br>球内E=ρ/3ε0  *r</p>
+<h2 id="例五"><a href="#例五" class="headerlink" title="例五"></a>例五</h2><p>无限长带电直线  E=λ/2Πεr<br>适当高斯面为圆柱面，只用侧面</p>
+<h2 id="例六"><a href="#例六" class="headerlink" title="例六"></a>例六</h2><p>半径为r的无限长均匀带电圆柱体 λ为线密度<br>体内λr/2Πε0R^2<br>体外  λ/2Πε0r</p>
+<h1 id="静电场的环路定理-电势"><a href="#静电场的环路定理-电势" class="headerlink" title="静电场的环路定理 电势"></a>静电场的环路定理 电势</h1><p>静电场力也是保守力<br>所以沿着闭合路径移动，做功为0</p>
+<p>在静电场中，电场强度的环流为0</p>
+<p>高斯定理得到静电场是有源场，环路定理知静电场是无旋场。<br>环路定理可以检验一个电场是不是静电场，做一个环路，求电势是不是0</p>
+<p>电势能，电势</p>
+<p>Wab=Ea-Eb</p>
+<p>求某一点的电势就从该点搬到0点</p>
+<p>零点的选择，</p>
+<ol>
+<li>无穷远处（源电荷有限范围</li>
+<li>无限大，无限长时，零点选在有限远处。</li>
+<li>实际选大地，仪器外壳。</li>
+</ol>
+<p>电势能不能描述电场本身性质<br>电势可以。</p>
+<p>电势为从所求点搬到电势零点，选零点同电势能</p>
+<p>电势差就是电压，v表示电势，u表示电压。谁减谁的差就是从谁搬到谁<br>dv=Edl</p>
+<p>1v=1j/c</p>
+<h2 id="电势的计算"><a href="#电势的计算" class="headerlink" title="电势的计算"></a>电势的计算</h2><h3 id="点电荷-q-4Πε0r-无穷远为0电"><a href="#点电荷-q-4Πε0r-无穷远为0电" class="headerlink" title="点电荷  q/4Πε0r (无穷远为0电)"></a>点电荷  q/4Πε0r (无穷远为0电)</h3><h3 id="点电荷系的电势-总场强矢量叠加后对l积分等同于单独的电势的代数和"><a href="#点电荷系的电势-总场强矢量叠加后对l积分等同于单独的电势的代数和" class="headerlink" title="点电荷系的电势  总场强矢量叠加后对l积分等同于单独的电势的代数和"></a>点电荷系的电势  总场强矢量叠加后对l积分等同于单独的电势的代数和</h3><h3 id="连续分布的电势-对dq积分"><a href="#连续分布的电势-对dq积分" class="headerlink" title="连续分布的电势 对dq积分"></a>连续分布的电势 对dq积分</h3><h3 id="已知场强分布，用定义式，已知电荷分布，用电势叠加原理"><a href="#已知场强分布，用定义式，已知电荷分布，用电势叠加原理" class="headerlink" title="已知场强分布，用定义式，已知电荷分布，用电势叠加原理"></a>已知场强分布，用定义式，已知电荷分布，用电势叠加原理</h3><p>3月31日</p>
+<h1 id="均匀带电圆环在圆心场强为零电势不为零"><a href="#均匀带电圆环在圆心场强为零电势不为零" class="headerlink" title="均匀带电圆环在圆心场强为零电势不为零"></a>均匀带电圆环在圆心场强为零电势不为零</h1><h2 id="非均匀带电圆环环心得电势仍未q-4ΠεR，任取P点也同均匀。"><a href="#非均匀带电圆环环心得电势仍未q-4ΠεR，任取P点也同均匀。" class="headerlink" title="非均匀带电圆环环心得电势仍未q/4ΠεR，任取P点也同均匀。"></a>非均匀带电圆环环心得电势仍未q/4ΠεR，任取P点也同均匀。</h2><h1 id="均匀分布的带电圆盘，将圆环积分从0积分到R，无穷远同圆盘"><a href="#均匀分布的带电圆盘，将圆环积分从0积分到R，无穷远同圆盘" class="headerlink" title="均匀分布的带电圆盘，将圆环积分从0积分到R，无穷远同圆盘"></a>均匀分布的带电圆盘，将圆环积分从0积分到R，无穷远同圆盘</h1><h1 id="均匀带电球面球面内为等势的等于q-4Πεr"><a href="#均匀带电球面球面内为等势的等于q-4Πεr" class="headerlink" title="均匀带电球面球面内为等势的等于q/4Πεr"></a>均匀带电球面球面内为等势的等于q/4Πεr</h1><h1 id="非均匀带电球面的球心处的电势也为q-4Πεr。"><a href="#非均匀带电球面的球心处的电势也为q-4Πεr。" class="headerlink" title="非均匀带电球面的球心处的电势也为q/4Πεr。"></a>非均匀带电球面的球心处的电势也为q/4Πεr。</h1><h1 id="均匀带电球体，非导体，因为导体内部没有电荷。"><a href="#均匀带电球体，非导体，因为导体内部没有电荷。" class="headerlink" title="均匀带电球体，非导体，因为导体内部没有电荷。"></a>均匀带电球体，非导体，因为导体内部没有电荷。</h1><h1 id="无限长均匀带电直线-不能去无穷远作为势能零点"><a href="#无限长均匀带电直线-不能去无穷远作为势能零点" class="headerlink" title="无限长均匀带电直线 不能去无穷远作为势能零点"></a>无限长均匀带电直线 不能去无穷远作为势能零点</h1><h1 id="场强与电势的关系"><a href="#场强与电势的关系" class="headerlink" title="场强与电势的关系"></a>场强与电势的关系</h1><h2 id="等势面与电场线处处正交。电场线方向指向电势降落的方向"><a href="#等势面与电场线处处正交。电场线方向指向电势降落的方向" class="headerlink" title="等势面与电场线处处正交。电场线方向指向电势降落的方向"></a>等势面与电场线处处正交。电场线方向指向电势降落的方向</h2><h2 id="可以用电势求场强分布"><a href="#可以用电势求场强分布" class="headerlink" title="可以用电势求场强分布"></a>可以用电势求场强分布</h2><h1 id="静电场中的电偶极子"><a href="#静电场中的电偶极子" class="headerlink" title="静电场中的电偶极子"></a>静电场中的电偶极子</h1><h2 id="力矩r×f（矢量）"><a href="#力矩r×f（矢量）" class="headerlink" title="力矩r×f（矢量）"></a>力矩r×f（矢量）</h2><p>电偶极子所受力矩M=p×E<br>有稳定平衡与非稳定平衡<br>在非匀强电场中有转动有平动<br>p=ql<br>电势能E=-p点乘E<br>90° 电势能为0  力矩最大<br>0° 电势能最底  力矩为0<br>180° 电势能最高 力矩为0 非稳定平衡</p>
+<h1 id="静电场中的导体"><a href="#静电场中的导体" class="headerlink" title="静电场中的导体"></a>静电场中的导体</h1><h2 id="静电感应-静电平衡"><a href="#静电感应-静电平衡" class="headerlink" title="静电感应 静电平衡"></a>静电感应 静电平衡</h2><h3 id="静电感应，金属中电子自己跑"><a href="#静电感应，金属中电子自己跑" class="headerlink" title="静电感应，金属中电子自己跑"></a>静电感应，金属中电子自己跑</h3><h3 id="静电平衡-内部场强为0，且表面电势为0-表面没有电荷的宏观定向移动。"><a href="#静电平衡-内部场强为0，且表面电势为0-表面没有电荷的宏观定向移动。" class="headerlink" title="静电平衡 内部场强为0，且表面电势为0 表面没有电荷的宏观定向移动。"></a>静电平衡 内部场强为0，且表面电势为0 表面没有电荷的宏观定向移动。</h3><h3 id="静电平衡的时候导体是等势体，表面是等势面"><a href="#静电平衡的时候导体是等势体，表面是等势面" class="headerlink" title="静电平衡的时候导体是等势体，表面是等势面"></a>静电平衡的时候导体是等势体，表面是等势面</h3><h3 id="静电平衡时导体上的电荷分布"><a href="#静电平衡时导体上的电荷分布" class="headerlink" title="静电平衡时导体上的电荷分布"></a>静电平衡时导体上的电荷分布</h3><ol>
+<li>实心导体</li>
+</ol>
+<blockquote>
+<p>内部场强为0，用高斯定理得到，内部电荷的代数和为0所以内部处处没有净电荷。所以电荷只能分布在表面上。所以导体不可能是均匀带电体，只能是带电面</p>
+</blockquote>
+<blockquote>
+<p>形状简单的孤立导体（其他导体或带电体离他足够远，对他没有影响），表面各处电荷面密度与该处表面的曲率有关</p>
+<blockquote>
+<p>凸出 曲率为正 大 面密度大<br>平坦 曲率小 面密度小<br>凹进 曲率为负 面密度更小</p>
+</blockquote>
+</blockquote>
+<h3 id="导体表面外附近的电场"><a href="#导体表面外附近的电场" class="headerlink" title="导体表面外附近的电场"></a>导体表面外附近的电场</h3><p>内部为0 上垂直</p>
+<p>用高斯定理，用柱形高斯面 En=σ/ε0  σ是局域处电荷面密度 虽然σ为局域面密度，但与其他各处电荷分布有关<br>表面上的电场为En的一半</p>
+<p>4月3日</p>
+<h4 id="尖端放电"><a href="#尖端放电" class="headerlink" title="尖端放电"></a>尖端放电</h4><p>场强可以大到使空气电离。金属元件做成球形光滑为了避免尖端放电</p>
+<h3 id="空腔导体与静电屏蔽"><a href="#空腔导体与静电屏蔽" class="headerlink" title="空腔导体与静电屏蔽"></a>空腔导体与静电屏蔽</h3><h4 id="空腔内无电荷"><a href="#空腔内无电荷" class="headerlink" title="空腔内无电荷"></a>空腔内无电荷</h4><p>假设有某处为正，则必然有一处为负。则可以画电场线，则有了电势差，则矛盾，则假设不成立，所以内表面不存在净电荷，且空腔内无电场。</p>
+<h4 id="空腔内有电荷"><a href="#空腔内有电荷" class="headerlink" title="空腔内有电荷"></a>空腔内有电荷</h4><p>则内表面有了等量异号的电荷</p>
+<blockquote>
+<p>总结，内表面的电荷由内部电荷感应出来，外表面电荷由外部电荷感应出来。内外互不影响</p>
+</blockquote>
+<blockquote>
+<p>空腔内表面的电荷与腔内电荷在腔外，导体外产生的电场也相互抵消</p>
+</blockquote>
+<p><strong>若空腔导体接地，则导体与大地接通，外表面的电荷会重新分布</strong></p>
+<p>接地腔内腔外互不影响</p>
+<p>不接地，腔内有电荷，腔内电荷回影响腔外电荷大小  +q</p>
+<h3 id="有导体时静电场的计算"><a href="#有导体时静电场的计算" class="headerlink" title="有导体时静电场的计算"></a>有导体时静电场的计算</h3><blockquote>
+<p>一般用到导体静电平衡的条件，静电场的高斯定理，电荷守恒定律，场强叠加原理。</p>
+</blockquote>
+<ol>
+<li>任取两点，列静电平衡条件</li>
+<li>列经典守恒定律</li>
+<li>根据已知解题</li>
+</ol>
+<p>注！！！！接地只意味着电势为0，不意味着电荷都没了</p>
+<p>4月7号</p>
+<h1 id="静电场的能量"><a href="#静电场的能量" class="headerlink" title="静电场的能量"></a>静电场的能量</h1><h2 id="电容器的电能"><a href="#电容器的电能" class="headerlink" title="电容器的电能"></a>电容器的电能</h2><p>w=Q^2/2C. 为放完电or充完电的情况<br>上式为电容器的储能公式，还有1/2 CU^2，  1/2 QU<br>要看一下哪个物理量的变化，电源连接和电源断开。<br>W=1/2 εE^2V, w与介质，电场强度，体积V有关，能量储存在电场中。<br>能量密度，w=1/2 εE^2,非匀强电场则对体积元积分。积分区域，遍布电场分布的区域。</p>
+<h2 id="带点体系的静电能"><a href="#带点体系的静电能" class="headerlink" title="带点体系的静电能"></a>带点体系的静电能</h2><p>不详细说明</p>
+<h3 id="总静电能-每个带电体单独存在时的自能＋带电体之间的-互作用能"><a href="#总静电能-每个带电体单独存在时的自能＋带电体之间的-互作用能" class="headerlink" title="总静电能=每个带电体单独存在时的自能＋带电体之间的  互作用能"></a>总静电能=每个带电体单独存在时的自能＋带电体之间的  互作用能</h3><h1 id="磁"><a href="#磁" class="headerlink" title="磁"></a>磁</h1><h2 id="磁与电的发现"><a href="#磁与电的发现" class="headerlink" title="磁与电的发现"></a>磁与电的发现</h2><ol>
+<li>分子电流</li>
+<li>电流的磁现象</li>
+</ol>
+<h2 id="磁场-磁感应强度"><a href="#磁场-磁感应强度" class="headerlink" title="磁场 磁感应强度"></a>磁场 磁感应强度</h2><h3 id="磁场"><a href="#磁场" class="headerlink" title="磁场"></a>磁场</h3><p>运动电荷电流磁体周围存在磁场，磁场对磁体运动电荷 电流有磁场力的作用，磁场具有能量。</p>
+<h3 id="磁感应强度"><a href="#磁感应强度" class="headerlink" title="磁感应强度"></a>磁感应强度</h3><h4 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h4><p>F=qv×b，B的单位是特斯拉，高斯,1T=10^4G</p>
+<h2 id="毕奥-萨伐尔定律"><a href="#毕奥-萨伐尔定律" class="headerlink" title="毕奥-萨伐尔定律"></a>毕奥-萨伐尔定律</h2><h3 id="毕奥-萨伐尔定律详细内容"><a href="#毕奥-萨伐尔定律详细内容" class="headerlink" title="毕奥-萨伐尔定律详细内容"></a>毕奥-萨伐尔定律详细内容</h3><h4 id="电流元所产生的磁场的公式"><a href="#电流元所产生的磁场的公式" class="headerlink" title="电流元所产生的磁场的公式"></a>电流元所产生的磁场的公式</h4><p>电流元的方向，为电流的方向<br>B=μ/4Π idl × r/r^3<br>右手定则判断方向 l到r，r为电流元处到所求点的直线，×为向内，·为向外，类似射箭</p>
+<blockquote>
+<p>本定律是由实验抽象出来，不能实验直接证明</p>
+</blockquote>
+<h3 id="比萨定律应用举例"><a href="#比萨定律应用举例" class="headerlink" title="比萨定律应用举例"></a>比萨定律应用举例</h3><h4 id="载流长直导线"><a href="#载流长直导线" class="headerlink" title="载流长直导线"></a>载流长直导线</h4><p>方向，右手螺旋，直接握住</p>
+<ol>
+<li>无限长直线电流的磁场<br>B=μi/2Πr<br>E=λ/2Πεr</li>
+<li>半无限长 Π到Π/2 or 0到Π/2<br>B=μi/4Πr</li>
+<li>点再导线延长线上，B=0</li>
+</ol>
+<p>4月10号</p>
+<p>载流圆线圈，其轴上的磁场仅延轴的方向，环心处为B=μI/2R，注意，无Π，<br>x&gt;&gt;R时，B=μIR^2/2x^3<br>磁矩m=is，s面积矢量的方向是右手螺旋的方向<br>B=μ/2Π  m/x^3</p>
+<p><strong>无限长载流螺线管</strong><br>B=μnl，<br>管口处为0.5μnl</p>
+<h3 id="运动电荷的磁场"><a href="#运动电荷的磁场" class="headerlink" title="运动电荷的磁场"></a>运动电荷的磁场</h3><p>B=μ/4Π · q×r/r^3,叉乘时方向用电流方向</p>
+<h2 id="磁通量-磁场高斯定理"><a href="#磁通量-磁场高斯定理" class="headerlink" title="磁通量 磁场高斯定理"></a>磁通量 磁场高斯定理</h2><h3 id="磁感应线"><a href="#磁感应线" class="headerlink" title="磁感应线"></a>磁感应线</h3><ol>
+<li>不相交，</li>
+<li>无头无尾的闭合曲线（无限远到无限远也算）</li>
+<li>与电流仙湖套连，服从右手螺旋。</li>
+<li>曲线切线方向为磁感应强度方向</li>
+<li>磁场强度由磁感应线的疏密来表示</li>
+</ol>
+<h3 id="磁通量"><a href="#磁通量" class="headerlink" title="磁通量"></a>磁通量</h3><p>Φ=B·S。<br>传入为负，传出为正</p>
+<h3 id="磁场高斯定理"><a href="#磁场高斯定理" class="headerlink" title="磁场高斯定理"></a>磁场高斯定理</h3><p>通过任意闭合曲面的磁通量必定为0<br>磁感线为平行直线的空间，磁感应线上的各点磁感强度相等</p>
+<h2 id="安培环路定理"><a href="#安培环路定理" class="headerlink" title="安培环路定理"></a>安培环路定理</h2><h3 id="定理内容"><a href="#定理内容" class="headerlink" title="定理内容"></a>定理内容</h3><p>稳恒电流产生的磁感应强度沿任意闭合环路L的线积分，等于穿过该环路的电流强度的<strong>代数和</strong>的μ倍。</p>
+<ol>
+<li>B的环流只有穿过环路的电流有关</li>
+<li>环路上个点的磁场为所有电流的贡献</li>
+<li>磁场有旋场，电流为磁场涡旋的中心。</li>
+<li>与积分环路方向成右手螺旋的电流为正，反之为负</li>
+<li>穿过积分的环电流必须和环路铰链（必须要套在一起）</li>
+<li>稳恒电流必须是闭合的，安培环路定理只适用于闭合电路（无限长的直电流为闭合）</li>
+<li>无电流空间区域内，磁感应线平行直线，那么磁场一定是匀强磁场</li>
+</ol>
+<p>4月14号</p>
+<h2 id="安培环路定理的应用"><a href="#安培环路定理的应用" class="headerlink" title="安培环路定理的应用"></a>安培环路定理的应用</h2><p>条件：稳恒电流对称分布</p>
+<h3 id="例一，无限长均匀载流圆柱面半径为R"><a href="#例一，无限长均匀载流圆柱面半径为R" class="headerlink" title="例一，无限长均匀载流圆柱面半径为R"></a>例一，无限长均匀载流圆柱面半径为R</h3><p>第一步，判断磁场方向，圆柱面同心圆的切线方向。<br>第二步，选取逆时针为环流方向。<br>第三步，求环路定理左边，磁感应强度沿闭合环路的线积分<br>第四步，分条件求右边。<br>圆柱面外，则电流为I，则为μI。<br>圆柱面内，则小同心圆里无电流，则B=0，无限长均匀载流圆柱面内磁场处处为0</p>
+<h3 id="例二，同轴电缆（圆柱体）"><a href="#例二，同轴电缆（圆柱体）" class="headerlink" title="例二，同轴电缆（圆柱体）"></a>例二，同轴电缆（圆柱体）</h3><h3 id="例三，无限大均匀载流平面，周围磁场"><a href="#例三，无限大均匀载流平面，周围磁场" class="headerlink" title="例三，无限大均匀载流平面，周围磁场"></a>例三，无限大均匀载流平面，周围磁场</h3><blockquote>
+<p>电流密度，I/截面面积，为体密度<br>I/l,为面密度，单位长度上。<br>将载流直线看成无限直线，<br>用矩形环路</p>
+</blockquote>
+<h3 id="例四，载流无限长直螺线管内任一点的磁场"><a href="#例四，载流无限长直螺线管内任一点的磁场" class="headerlink" title="例四，载流无限长直螺线管内任一点的磁场"></a>例四，载流无限长直螺线管内任一点的磁场</h3><p>右手定则判断方向 l到r，r为电流元处到所求点的直线，×为向内，·为向外，类似射箭</p>
+<h4 id="例五，载流螺旋管（环形螺线管内的磁场）"><a href="#例五，载流螺旋管（环形螺线管内的磁场）" class="headerlink" title="例五，载流螺旋管（环形螺线管内的磁场）"></a>例五，载流螺旋管（环形螺线管内的磁场）</h4><h2 id="磁场对运动电荷的作用"><a href="#磁场对运动电荷的作用" class="headerlink" title="磁场对运动电荷的作用"></a>磁场对运动电荷的作用</h2><h3 id="洛伦兹力"><a href="#洛伦兹力" class="headerlink" title="洛伦兹力"></a>洛伦兹力</h3><p>F=qv×B</p>
+<blockquote>
+<p>记得负电荷</p>
+</blockquote>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ol>
+<li>只对运动电荷有作用力</li>
+<li>始终不做功</li>
+</ol>
+<h3 id="带电粒子在磁场中的运动"><a href="#带电粒子在磁场中的运动" class="headerlink" title="带电粒子在磁场中的运动"></a>带电粒子在磁场中的运动</h3><h4 id="速度方向鱼磁场方向平行"><a href="#速度方向鱼磁场方向平行" class="headerlink" title="速度方向鱼磁场方向平行"></a>速度方向鱼磁场方向平行</h4><p>粒子做匀速直线运动</p>
+<h4 id="速度方向与磁场方向垂直"><a href="#速度方向与磁场方向垂直" class="headerlink" title="速度方向与磁场方向垂直"></a>速度方向与磁场方向垂直</h4><p>粒子做匀速圆周运动</p>
+<h4 id="速度方向与磁场方向有夹角"><a href="#速度方向与磁场方向有夹角" class="headerlink" title="速度方向与磁场方向有夹角"></a>速度方向与磁场方向有夹角</h4><p>螺旋线向前运动，将速度适量分解。</p>
+<blockquote>
+<p>磁约束效应，强磁场可把带电粒子约束<br>螺距-粒子回转一周所前进的距离：与vy无关  </p>
+</blockquote>
+<h3 id="霍尔效应"><a href="#霍尔效应" class="headerlink" title="霍尔效应"></a>霍尔效应</h3><p>载流导体版，垂直于版面施加磁场，则版面两侧微弱电势差<br>霍尔系数Rh=1/nq<br>量子霍尔效应，低温，强磁<br>分数霍尔效应</p>
+<ol>
+<li>霍尔效应的应用。<br>Uab=1/nq   *IB/d</li>
+</ol>
+<blockquote>
+<p>n为载流子浓度<br>通过测量电压判断载流子类型，求B I n  </p>
+</blockquote>
+<p>磁流体发电</p>
+<h2 id="磁场对电流的作用"><a href="#磁场对电流的作用" class="headerlink" title="磁场对电流的作用"></a>磁场对电流的作用</h2><h3 id="磁场对载流导线的作用"><a href="#磁场对载流导线的作用" class="headerlink" title="磁场对载流导线的作用"></a>磁场对载流导线的作用</h3><p>电流元在磁场中收到的力等于体积内所有载流子受到的力，由此可以推出安培力公式<br>dF=Idl×B</p>
+<blockquote>
+<p>I=nqvs<br>对于一段载流导线，为积分<br>若磁场为匀强磁场，则B可以提出来<br>匀强磁场，闭合电流，则为F=0（匀强磁场中的线圈）</p>
+</blockquote>
+<blockquote>
+<p>弯弯曲曲的一条先矢量积分就是a指向b的直线<br>电流同向相吸。</p>
+</blockquote>
+<p>4月17日</p>
+<h4 id="例题3"><a href="#例题3" class="headerlink" title="例题3"></a>例题3</h4><p>通有电流的矩形线框 旁边是载流直线，求受力</p>
+<blockquote>
+<p>方法一：分别求左右两条对称边，上下两条对称边，得到结果<br>方法二：定性分析。</p>
+</blockquote>
+<h3 id="均匀磁场对平面载流线圈的作用"><a href="#均匀磁场对平面载流线圈的作用" class="headerlink" title="均匀磁场对平面载流线圈的作用"></a>均匀磁场对平面载流线圈的作用</h3><p>合力为0，无平动<br>力矩和不为0，有转动，力矩=F×r矢量叉乘</p>
+<blockquote>
+<p>M=m×B。磁力矩 等于磁偶极矩×磁通量<br>M=p×M</p>
+</blockquote>
+<h3 id="磁场力的功"><a href="#磁场力的功" class="headerlink" title="磁场力的功"></a>磁场力的功</h3><ol>
+<li>磁场对载流导线的功，easy。<br>磁场力的功等于电流强度乘穿过回路的磁通量的增量or电流强度×导线切割磁力线的条数。</li>
+<li>磁场对对载流线圈。同上</li>
+<li>磁偶极子的势能，设磁矩与磁感应强度B相互垂直时为势能零点。 </li>
+</ol>
+<h1 id="变化电磁场"><a href="#变化电磁场" class="headerlink" title="变化电磁场"></a>变化电磁场</h1><h2 id="法拉第电磁感应定律"><a href="#法拉第电磁感应定律" class="headerlink" title="法拉第电磁感应定律"></a>法拉第电磁感应定律</h2><h3 id="总结实验现象得到，磁通量变化，会产生电动势"><a href="#总结实验现象得到，磁通量变化，会产生电动势" class="headerlink" title="总结实验现象得到，磁通量变化，会产生电动势"></a>总结实验现象得到，磁通量变化，会产生电动势</h3><p>电动势可以从非闭合，介质中产生。<br>感应电动势的大小来自磁通量变化率，方向要考虑磁通量时要增加还是减少。</p>
+<h3 id="数学表达式"><a href="#数学表达式" class="headerlink" title="数学表达式"></a>数学表达式</h3><p>E=-dΦ/dt</p>
+<blockquote>
+<p>规定电动势方向与回路绕行方向一致时为正<br>S,与回路绕行方向成右手螺旋。即通过对回路绕行方向右手螺旋得到S的正方向</p>
+</blockquote>
+<h3 id="回路与环路的区别"><a href="#回路与环路的区别" class="headerlink" title="回路与环路的区别"></a>回路与环路的区别</h3><p>环路是人为画的，回路是确实存在的</p>
+<h3 id="楞次定律"><a href="#楞次定律" class="headerlink" title="楞次定律"></a>楞次定律</h3><p>电磁学中的惯性定理，电磁学中的能量守恒定律</p>
+<h3 id="全磁通"><a href="#全磁通" class="headerlink" title="全磁通"></a>全磁通</h3><p>总电动势等于各匝线圈磁通量的综合。<br>E=-dφ/dt<br> =-NdΦ/dt</p>
+<h3 id="交流电"><a href="#交流电" class="headerlink" title="交流电"></a>交流电</h3><p>E=NBSwsinwt</p>
+<h2 id="动生电动势"><a href="#动生电动势" class="headerlink" title="动生电动势"></a>动生电动势</h2><ol>
+<li>导线运动引起的交动生电动势</li>
+<li>切割磁感线才产生电动势</li>
+<li>V×B,方向为搬用正电荷的方向</li>
+</ol>
+<h3 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h3><ol>
+<li>补全法（形状特殊的，补全成一个回路，则回路电动势为0</li>
+<li>法拉第电机，圆盘切割磁感线等价于一个半径切磁感线</li>
+</ol>
+<h3 id="功能关系"><a href="#功能关系" class="headerlink" title="功能关系"></a>功能关系</h3><blockquote>
+<p>实际洛伦兹力只传递能量。</p>
+</blockquote>
+<h2 id="感生电动势"><a href="#感生电动势" class="headerlink" title="感生电动势"></a>感生电动势</h2><h3 id="感生电场"><a href="#感生电场" class="headerlink" title="感生电场"></a>感生电场</h3><ol>
+<li>变化的磁场激发感生电场，电场作用于电荷，引起感生电动势</li>
+<li>磁棒插入非金属环，也能产生 电动势，但无电流.</li>
+</ol>
+<h3 id="感生电场及感生电动势的计算"><a href="#感生电场及感生电动势的计算" class="headerlink" title="感生电场及感生电动势的计算"></a>感生电场及感生电动势的计算</h3><ol>
+<li>长直螺线管，管内和管外的感生电场</li>
+</ol>
+<blockquote>
+<p>管内 E=r/2  dB/dt</p>
+</blockquote>
+<blockquote>
+<p>管外 E=R^2/2r  dB/dt</p>
+</blockquote>
+<ol start="2">
+<li>无限长圆柱内有一根导体棒，求导体棒的感生电动势</li>
+</ol>
+<p>感生电动势=感生电场×dl（线元）<br>因而可得在圆柱的半径方向的感生电动势=0<br>不在半径方向的导体棒，连接成一个回路，则回路电动势=棒的电动势<br>螺线管外则变成扇形区域的面积。</p>
+<h3 id="涡电流"><a href="#涡电流" class="headerlink" title="涡电流"></a>涡电流</h3><ol>
+<li>热效应,电磁炉</li>
+<li>机械效应 电磁阻尼</li>
+<li>防止涡流的方法减小电流截面，增大电阻，插入绝缘薄片</li>
+</ol>
+<h3 id="电子感应加速器"><a href="#电子感应加速器" class="headerlink" title="电子感应加速器"></a>电子感应加速器</h3><h2 id="自感、互感"><a href="#自感、互感" class="headerlink" title="自感、互感"></a>自感、互感</h2><h3 id="自感"><a href="#自感" class="headerlink" title="自感"></a>自感</h3><h4 id="自感定义"><a href="#自感定义" class="headerlink" title="自感定义"></a>自感定义</h4><p>当线圈中的自身电流发生变化时产生感应电动势<br>单位为H 亨利</p>
+<p>B=μnI，无限长螺线管，没有铁磁质<br>B正比于I，φ也正比于B（=bs），所以φ正比于I<br>则φ=LI，L为线圈回路的自感系数</p>
+<h4 id="自感电动势计算"><a href="#自感电动势计算" class="headerlink" title="自感电动势计算"></a>自感电动势计算</h4><p>自感电动势E=-dφ/dt=-LdI/dt，此时自感系数为常熟，若自感系数也为变量，则需对两边同时求导</p>
+<h4 id="电磁惯性"><a href="#电磁惯性" class="headerlink" title="电磁惯性"></a>电磁惯性</h4><p>自感具有保持原电流状态的能力，叫做电磁惯性</p>
+<p>L是这种能力大小的量度</p>
+<h4 id="自感系数的计算"><a href="#自感系数的计算" class="headerlink" title="自感系数的计算"></a>自感系数的计算</h4><p>L与回路的大小形状匝数磁介质有关<br>L=φ/I<br>L=dφ/dI=-E/（dI/dt）（实质为前面那个式子上下对t求导）</p>
+<h4 id="自感例题"><a href="#自感例题" class="headerlink" title="自感例题"></a>自感例题</h4><ol>
+<li>螺线管L=μn^2Sl<br>插入铁芯可以增大μ</li>
+<li>圆柱面<br>单位长度的自感L=μ0μr/2Π  lnR2/R1</li>
+</ol>
+<h3 id="互感"><a href="#互感" class="headerlink" title="互感"></a>互感</h3><p>基本与自感一致</p>
+<p>方便计算可用下式<br>M=根号下L1L2 （彼此磁场完全穿过）</p>
+<p>M=k根号L1L2<br>k为耦合系数<br>k与线圈的相对位置有关<br>    无限远or垂直时，k=0，M=0</p>
+<h2 id="磁场的能量"><a href="#磁场的能量" class="headerlink" title="磁场的能量"></a>磁场的能量</h2><p>电源转换为线圈中的储能</p>
+<p>线圈 1/2 L I^2<br>电容 1/2 C U^2<br>Wm(单位体积内的磁场能量)= 1/2 BH<br>所以可以对体积元积分<br>和电场完全对称<br>W总=0.5DE +0.5BH</p>
+<h2 id="位移电流"><a href="#位移电流" class="headerlink" title="位移电流"></a>位移电流</h2><p>原因：安培环路不成立</p>
+<p>使用电流连续方程（电荷守恒定律）</p>
+<p>全电流=传导电流＋位移电流<br>位移电流=电位移通量的导数<br>I=dφD/dt=S* dD/dt<br>I=ΠR^2 ε0 dE/dt<br>因为D=εE<br>B=μH<br>感应电动势=磁通量的导数</p>
+<p>位移电流的本质是变化的电场</p>
+<p>推广得到全电流环路定理</p>
+<h2 id="麦克斯韦方程组"><a href="#麦克斯韦方程组" class="headerlink" title="麦克斯韦方程组"></a>麦克斯韦方程组</h2><p>静电场</p>
+<p>静电场的高斯定理 DS=q<br>静电场的环路定理 El=0</p>
+<p>稳恒磁场<br>磁场的高斯定理 BS=0<br>安培环路定理 Hl =Ic（传导电流）</p>
+<p>对一切而言</p>
+<p>环路定理 El=dB/dt  *S<br>H</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%90%86%E7%A7%91/">理科</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%89%A9%E7%90%86%EF%BC%8C%E7%94%B5%E7%A3%81/">物理，电磁</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/08/%E6%8C%AF%E5%8A%A8/">
+                        <span class="hidden-mobile">振动</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "电磁&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: true,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
