@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>数据结构与算法（一）</title>
+    <link href="/2020/05/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <url>/2020/05/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p>第一天学习的内容，关于最大子序列的和三种算法</p><a id="more"></a><h1 id="一般能想到的算法"><a href="#一般能想到的算法" class="headerlink" title="一般能想到的算法"></a>一般能想到的算法</h1><h2 id="O（n-3）的算法"><a href="#O（n-3）的算法" class="headerlink" title="O（n^3）的算法"></a>O（n^3）的算法</h2><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">nOfCubed</span> <span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *a*[],<span class="hljs-keyword">int</span> *n*)</span></span><span class="hljs-function"></span><span class="hljs-function"></span>&#123;  *<span class="hljs-comment">//从第0项开始加，0，01，012，0123，012……n，1，12，123，这样遍历*</span>  <span class="hljs-keyword">int</span> sum,maxsum,j,k;  maxsum=<span class="hljs-number">0</span>;  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)  &#123;​    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> t = i; t &lt; n; t++)​    &#123;​      sum=<span class="hljs-number">0</span>;​      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> k = i; k &lt;=t; k++)​      &#123;​        sum+=a[k];​      &#125;​      <span class="hljs-keyword">if</span> (sum&gt;maxsum)​      &#123;​        maxsum=sum;​      &#125;​      ​      ​    &#125;​      &#125;  <span class="hljs-keyword">return</span> maxsum;  &#125;</code></pre><h2 id="O（n-2）的算法"><a href="#O（n-2）的算法" class="headerlink" title="O（n^2）的算法"></a>O（n^2）的算法</h2><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">square</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> a[],<span class="hljs-keyword">int</span> n)</span></span><span class="hljs-function"></span>&#123;    <span class="hljs-comment">//0然后比较，01，比较，0123，比较，也就是在一次循环中同时做了加和比较两件事情，使得立方运行时间变成了平方</span>    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>  sum,<span class="hljs-built_in">max</span>;    <span class="hljs-built_in">max</span>=<span class="hljs-number">0</span>;    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)    &#123;        sum=<span class="hljs-number">0</span>;        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> t = i; t &lt; n; t++)        &#123;            sum+=a[t];            <span class="hljs-keyword">if</span> (sum&gt;<span class="hljs-built_in">max</span>)            &#123;                <span class="hljs-built_in">max</span>=sum;            &#125;                &#125;            &#125;    <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>;   &#125;</code></pre><h2 id="n-2与n-3-算法的区别"><a href="#n-2与n-3-算法的区别" class="headerlink" title="n^2与n^3 算法的区别"></a>n^2与n^3 算法的区别</h2><p>对于n^3的算法，每次计算子序列的和需要重新从首项开始加，耗费了大量时间，所以在n^2的算法里，我们在每一次求出和之后立马进行比较，少了一次从首项开始加，从而成功减小时间复杂度。</p><h1 id="分治算法"><a href="#分治算法" class="headerlink" title="分治算法"></a>分治算法</h1><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fenzhi</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> a[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span><span class="hljs-function"></span>&#123;    <span class="hljs-keyword">int</span> maxOfLeft=<span class="hljs-number">0</span>,maxOfRight=<span class="hljs-number">0</span>;    <span class="hljs-keyword">int</span> maxLeftB=<span class="hljs-number">0</span>,maxRightB=<span class="hljs-number">0</span>;    <span class="hljs-keyword">int</span> leftBSum=<span class="hljs-number">0</span>,rightBSum=<span class="hljs-number">0</span>;    <span class="hljs-keyword">int</span> center=<span class="hljs-number">0</span>,i=<span class="hljs-number">0</span>;    <span class="hljs-comment">//下面为基准情形，用于退出递归</span>    <span class="hljs-keyword">if</span> (left==right)    &#123;        <span class="hljs-keyword">if</span> (a[left])        &#123;            <span class="hljs-keyword">return</span> a[left];        &#125;<span class="hljs-keyword">else</span>        &#123;            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;        &#125;    &#125;    center=(left+right)/<span class="hljs-number">2</span>;    maxOfLeft=fenzhi(a,left,center);<span class="hljs-comment">//通过递归求出纯左边的最大子序列</span>    maxOfRight=fenzhi(a,center+<span class="hljs-number">1</span>,right);<span class="hljs-comment">//通过递归求出纯右边的最大子序列</span>    maxLeftB=<span class="hljs-number">0</span>;    leftBSum=<span class="hljs-number">0</span>;    <span class="hljs-keyword">for</span> ( i = center; i &gt;= left; i--)    &#123;        leftBSum+=a[i];        <span class="hljs-keyword">if</span> (leftBSum&gt;maxLeftB)        &#123;            maxLeftB=leftBSum;        &#125;    &#125;    maxRightB=<span class="hljs-number">0</span>;    rightBSum=<span class="hljs-number">0</span>;    <span class="hljs-keyword">for</span> ( i = center+<span class="hljs-number">1</span>; i &lt;= right; i++)    &#123;        rightBSum+=a[i];        <span class="hljs-keyword">if</span> (rightBSum&gt;maxRightB)        &#123;            maxRightB=rightBSum;        &#125;    &#125;   <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(maxOfLeft,maxOfRight,maxRightB+maxLeftB) ;<span class="hljs-comment">//此处需要注意，每次返回的值应该是左边的or右边or中间的最大值，此处的左边右边中间指的是进入此函数的数组a，也是进行二分之后的数组的那部分。</span>&#125;</code></pre><p>分治算法，分而治之。</p><h4 id="分"><a href="#分" class="headerlink" title="分"></a>分</h4><p>将问题分为两个大致相等的子问题</p><h4 id="治"><a href="#治" class="headerlink" title="治"></a>治</h4><p>将两个子问题的解合在一起，附加少量工作，得到答案</p><h4 id="在本问题的表现"><a href="#在本问题的表现" class="headerlink" title="在本问题的表现"></a>在本问题的表现</h4><p>最大子序列只能在输入数据的左边，右边，中间三部分出现。然后左边，右边可以递归求解。中间可以变成特别的左边右边的最大子序列的和。</p><blockquote><p>特别的左边右边子序列指的是，包含左边最后一个元素的子序列，包含右边第一个元素的子序列</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机科学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据结构与算法</tag>
+      
+      <tag>第二章</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>电磁</title>
     <link href="/2020/05/08/%E7%94%B5%E7%A3%81/"/>
     <url>/2020/05/08/%E7%94%B5%E7%A3%81/</url>
@@ -20,7 +47,9 @@
     
     <tags>
       
-      <tag>物理，电磁</tag>
+      <tag>物理</tag>
+      
+      <tag>电磁</tag>
       
     </tags>
     
@@ -45,7 +74,9 @@
     
     <tags>
       
-      <tag>物理，电磁</tag>
+      <tag>物理</tag>
+      
+      <tag>电磁</tag>
       
     </tags>
     
