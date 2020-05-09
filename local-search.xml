@@ -13,16 +13,16 @@
     
     <categories>
       
-      <category>计算机科学</category>
+      <category>数据结构与算法</category>
+      
+      <category>第二章</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>数据结构与算法</tag>
-      
-      <tag>第二章</tag>
+      <tag>计算机科学</tag>
       
     </tags>
     
@@ -40,16 +40,16 @@
     
     <categories>
       
-      <category>理科</category>
+      <category>物理</category>
+      
+      <category>电磁</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>物理</tag>
-      
-      <tag>电磁</tag>
+      <tag>理科</tag>
       
     </tags>
     
@@ -67,16 +67,16 @@
     
     <categories>
       
-      <category>理科</category>
+      <category>物理</category>
+      
+      <category>电磁</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>物理</tag>
-      
-      <tag>电磁</tag>
+      <tag>理科</tag>
       
     </tags>
     
@@ -94,14 +94,14 @@
     
     <categories>
       
+      <category>教程</category>
+      
       <category>python3</category>
       
     </categories>
     
     
     <tags>
-      
-      <tag>教程</tag>
       
       <tag>python3</tag>
       
