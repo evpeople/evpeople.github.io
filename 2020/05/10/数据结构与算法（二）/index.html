@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>振动 - 某人写字的地方</title>
+  <title>数据结构与算法（二） - 某人写字的地方</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -141,8 +141,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-05-08 14:40">
-                    星期五, 五月 8日 2020, 2:40 下午
+                  <time datetime="2020-05-10 22:32">
+                    星期日, 五月 10日 2020, 10:32 晚上
                   </time>
                 </div>
               
@@ -152,7 +152,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    942 字
+                    421 字
                   </span>
                 
 
@@ -162,7 +162,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    10
+                    5
                      分钟
                   </span>
                 
@@ -192,59 +192,79 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 天前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <article class="markdown-body">
-              <p>关于振动的笔记</p>
+              <p>第二天学习的内容，关于欧几里得算法求最大公因数，以及快速幂</p>
 <a id="more"></a>
 
-<h1 id="机械振动"><a href="#机械振动" class="headerlink" title="机械振动"></a>机械振动</h1><h2 id="什么是简谐振动"><a href="#什么是简谐振动" class="headerlink" title="什么是简谐振动"></a>什么是简谐振动</h2><h3 id="任何一个物理量在某一数值附近反复变化叫振动"><a href="#任何一个物理量在某一数值附近反复变化叫振动" class="headerlink" title="任何一个物理量在某一数值附近反复变化叫振动"></a>任何一个物理量在某一数值附近反复变化叫振动</h3><ol>
-<li>受迫振动：受外力驱动产生的振动，带来共振</li>
-<li>自由振动</li>
-<li>1 阻尼振动 收到阻力</li>
-<li>2 无阻尼自由振动</li>
-<li>2.1 无阻尼自由非谐振动</li>
-<li>2.2 无阻尼自由谐振动（简谐振动）</li>
-</ol>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ol>
-<li>弹簧振子</li>
-</ol>
-<p><em>注意，以平衡位置作为坐标原点</em><br>2. 单摆<br><em>默认逆时针为在</em></p>
-<h3 id="简谐振动的特点"><a href="#简谐振动的特点" class="headerlink" title="简谐振动的特点"></a>简谐振动的特点</h3><p>运动方程由谐函数描述</p>
-<ol>
-<li>运动学：Q（t）=Qcos（）……Q为任何物理量</li>
-<li>动力学：Q对t二阶导+w^2Q=0</li>
-<li>线性恢复力：弹簧振子，单摆</li>
-<li>振动能量 Ep+Ek时，总能量不变<br>满足上述四条之一就是简谐振动</li>
-</ol>
-<h3 id="振动例题"><a href="#振动例题" class="headerlink" title="振动例题"></a>振动例题</h3><p>以平衡位置坐标原点</p>
-<h3 id="简谐运动的描述解析以及真的去"><a href="#简谐运动的描述解析以及真的去" class="headerlink" title="简谐运动的描述解析以及真的去"></a>简谐运动的描述解析以及真的去</h3><h2 id="简谐振动的特征量"><a href="#简谐振动的特征量" class="headerlink" title="简谐振动的特征量"></a>简谐振动的特征量</h2><p>振幅A，由初始条件确定<br>角频率， 系统固有的性质<br>相位、初相位 相位描写t时刻的振动状态。<br>初相位，为开始计时时刻的振动状态</p>
-<p>初相位不等同于摆角。<br>相位对时间的导数为角频率，不为角速度<br>摆角对时间的导数为角速度</p>
-<p>第一象限 x&gt;0,v&lt;0 0到90<br>第二象限 x,v 均小于0 90到180<br>第三象限 x&lt;0 v&gt;0 180到270<br>第四象限 x,v 均大于0 270到360</p>
-<h2 id="旋转矢量法"><a href="#旋转矢量法" class="headerlink" title="旋转矢量法"></a>旋转矢量法</h2><p>将振幅看作矢量，以角速度w绕0逆时针旋转，则在x轴的投影p即代表简谐振动<br>相位差，对相位相减。（同频率<br>取小于Π的夹角<br>Δφ&gt;0 则x2比x1领先<br>Δφ&lt;0 则x2比x1落后<br>==2kΠ，同相<br>==(2k-1)Π，反相</p>
-<h2 id="简谐振动的能量"><a href="#简谐振动的能量" class="headerlink" title="简谐振动的能量"></a>简谐振动的能量</h2><p>动能和弹性势能<br>公式易知<br>且k=mΩ^2<br>E总=1/2 k A^2<br>能量与振幅的平方成正比<br>平均动能，平均势能为最大值的一半<br>平衡位置动能max，势能min<br>最大位移，相反<br><strong>势能最低点附近的微小振动为简谐振动</strong></p>
-<h2 id="简谐振动的合成"><a href="#简谐振动的合成" class="headerlink" title="简谐振动的合成"></a>简谐振动的合成</h2><h3 id="分震动在一条直线上"><a href="#分震动在一条直线上" class="headerlink" title="分震动在一条直线上"></a>分震动在一条直线上</h3><h4 id="同频率"><a href="#同频率" class="headerlink" title="同频率"></a>同频率</h4><h5 id="两个-干涉-双缝"><a href="#两个-干涉-双缝" class="headerlink" title="两个 干涉 双缝"></a>两个 干涉 双缝</h5><ol>
-<li>解析法<br>x=x1+x2</li>
-<li>旋转矢量法<br>合成了一个不变形的平行四边形</li>
-<li>讨论干涉</li>
-<li>1 振动同相时<br>此时合振幅最大，光学中为亮条纹中心，干涉相长</li>
-<li>2 振动反相时<br>此时合振幅最小，暗条纹，干涉相消</li>
-<li>3 非整数倍时<br>亮纹中心和暗纹之间</li>
-</ol>
-<h5 id="多个-衍射-单缝-光栅"><a href="#多个-衍射-单缝-光栅" class="headerlink" title="多个 衍射 单缝 光栅"></a>多个 衍射 单缝 光栅</h5><ol>
-<li>仍然是简谐振动</li>
-<li>同振幅，初相位等差数列时</li>
-<li>1 此时构成正多边形的一部分,连接外接圆圆心，则顶角为公差的值</li>
-<li>讨论 多光束干涉</li>
-<li>1 各个分振动同向，主极大<br>δ=2kΠ</li>
-<li>2 各个分振动闭合，极小值<br>Nδ=2kΠ k!=0 k!=mN（k不是n的整数倍）</li>
-<li>3 合矢量为外接圆直径，次级大<br>Nδ=Π的奇数倍</li>
-</ol>
-<h4 id="不同频率-拍频"><a href="#不同频率-拍频" class="headerlink" title="不同频率 拍频"></a>不同频率 拍频</h4><p>矢量合成为变化的平行四边形，则振幅有变化，则非平行四边形<br>合振动的周期性的强弱变化称为拍<br>拍频：单位时间内振动强弱变化的次数<br>应用： 音叉校准乐器 ，测量超声波频率，测量无线电电波</p>
-<h3 id="分震动在垂直方向上"><a href="#分震动在垂直方向上" class="headerlink" title="分震动在垂直方向上"></a>分震动在垂直方向上</h3><h4 id="同频率-偏振-线偏振-圆偏振-椭圆偏振"><a href="#同频率-偏振-线偏振-圆偏振-椭圆偏振" class="headerlink" title="同频率 偏振 线偏振 圆偏振 椭圆偏振"></a>同频率 偏振 线偏振 圆偏振 椭圆偏振</h4><p>呈现出椭圆形状<br>相位差为y-x<br>右旋（顺时针）<br>左旋（逆时针）<br>椭圆会被卡在矩形区域内<br>在正负A1，正负A2内</p>
-<h5 id="两个"><a href="#两个" class="headerlink" title="两个"></a>两个</h5><h5 id="多个"><a href="#多个" class="headerlink" title="多个"></a>多个</h5><h4 id="不同频率-李萨如图"><a href="#不同频率-李萨如图" class="headerlink" title="不同频率 李萨如图"></a>不同频率 李萨如图</h4>
+<h1 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h1><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">gcd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> m ,<span class="hljs-keyword">int</span> n)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">int</span> rem;
+    <span class="hljs-keyword">while</span> (n&gt;<span class="hljs-number">0</span>)
+    &#123;
+        rem=m%n;
+        m=n;
+        n=rem;
+    &#125;
+    <span class="hljs-keyword">return</span> m;
+&#125;</code></pre>
+
+<p>称之为辗转相除法也可。时间复杂度为logn</p>
+<p>通过定理</p>
+<blockquote>
+<p>如果M&gt;N,则M mod N &lt; M/2</p>
+<p>分两种情况证明</p>
+</blockquote>
+<h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">qiumi</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> n)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-comment">//复杂度为log（n）</span>
+    <span class="hljs-keyword">if</span> (n==<span class="hljs-number">0</span>)
+    &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    &#125;
+    <span class="hljs-keyword">if</span> (n==<span class="hljs-number">1</span>)
+    &#123;
+        <span class="hljs-keyword">return</span> x;
+    &#125;
+    <span class="hljs-keyword">if</span> (n%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>)<span class="hljs-comment">//偶数</span>
+    &#123;
+        <span class="hljs-keyword">return</span> qiumi(x*x,n/<span class="hljs-number">2</span>);<span class="hljs-comment">//求x方的n/2次幂。然后x的四次方的n/4次幂，以此类推，得到x的n次幂。</span>
+    &#125;<span class="hljs-keyword">else</span>
+    &#123;
+        <span class="hljs-keyword">return</span> qiumi(x*x,(n)/<span class="hljs-number">2</span>)*x;
+    &#125;
+&#125;</code></pre>
+
+<p>时间复杂度为 logn</p>
+<p>一般的循环做法时间复杂度为n</p>
+<p>求2^10次方，可以变为2^5 *2 ^5 </p>
+<p>然后2^5 可以为2 ^2 *2^2 *2</p>
+<p>也就是先计算2×2，然后 4×4×2，然后32×32，总共四次乘法</p>
+<p>然后写递推的思路，求x^n，若n为偶数，则先求 x^(n/2) ，然后对其 平方。</p>
+<p>然后如果n为奇数，则求x的n-1次方，再乘x</p>
+<p>下面按照此思路再写一遍代码</p>
+<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">kuaisumi</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">if</span>(b==<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(b==<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> a;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(b%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> kuaisumi(a,n/<span class="hljs-number">2</span>)*kuaisumi(a,n/<span class="hljs-number">2</span>);
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> kuaisumi(a,n<span class="hljs-number">-1</span>)*a;
+&#125;</code></pre>
+
+<p>我们发现第六行与正确答案不一样，我们应该用正确答案的写法。</p>
+<p>因为</p>
+<pre><code class="hljs c">kuaisumi(a,n/<span class="hljs-number">2</span>)*kuaisumi(a,n/<span class="hljs-number">2</span>);</code></pre>
+
+<p>会造成调用两个递归，而不是一个递归。影响效率</p>
+<h1 id="明天的学习目标"><a href="#明天的学习目标" class="headerlink" title="明天的学习目标"></a>明天的学习目标</h1><p>学习完3.1，3.2</p>
+
             </article>
             <hr>
             <div>
@@ -253,9 +273,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%89%A9%E7%90%86/">物理</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%89%A9%E7%90%86/%E7%94%B5%E7%A3%81/">电磁</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%AC%AC%E4%BA%8C%E7%AB%A0/">第二章</a>
                     
                   </div>
                 
@@ -263,7 +283,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%90%86%E7%A7%91/">理科</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
                     
                   </div>
                 
@@ -276,18 +296,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/08/%E7%94%B5%E7%A3%81/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">电磁</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/04/27/%E7%BB%99%E5%B0%8F%E5%B0%8F%E7%99%BD%E7%9A%84python3%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E/">
-                        <span class="hidden-mobile">给小小白的python3安装说明</span>
+                      <a href="/2020/05/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/">
+                        <span class="hidden-mobile">数据结构与算法（一）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -446,7 +460,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "振动&nbsp;",
+        "数据结构与算法（二）&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
