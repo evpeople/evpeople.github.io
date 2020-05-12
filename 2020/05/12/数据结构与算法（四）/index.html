@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>关于项目的思考，包括计算器和雏燕 - 某人写字的地方</title>
+  <title>数据结构与算法（四） - 某人写字的地方</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -141,8 +141,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-05-12 08:14">
-                    星期二, 五月 12日 2020, 8:14 早上
+                  <time datetime="2020-05-12 22:44">
+                    星期二, 五月 12日 2020, 10:44 晚上
                   </time>
                 </div>
               
@@ -152,7 +152,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    499 字
+                    693 字
                   </span>
                 
 
@@ -162,7 +162,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    5
+                    7
                      分钟
                   </span>
                 
@@ -192,27 +192,68 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：15 小时前
+                  本文最后更新于：23 分钟前
                 
               </p>
             
             <article class="markdown-body">
-              <p>闲下来的（大学英语课上），早就想写的关于项目的策划</p>
+              <p>第四天学习的内容，实现桶排序，看了多重表，跳过游标实现链表</p>
 <a id="more"></a>
 
-<h1 id="计算器"><a href="#计算器" class="headerlink" title="计算器"></a>计算器</h1><h2 id="首先要做的"><a href="#首先要做的" class="headerlink" title="首先要做的"></a>首先要做的</h2><p>手绘出GUI，然后使用tkinter或者其他的python图形化的库，绘制好按钮，安排好按钮的位置，也就是在视觉上实现GUI</p>
+<h1 id="关于桶排序"><a href="#关于桶排序" class="headerlink" title="关于桶排序"></a>关于桶排序</h1><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bucketsort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[],<span class="hljs-keyword">int</span> count)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-comment">//桶排序，空间占用极大</span>
+    <span class="hljs-keyword">int</span> b[count];
+    <span class="hljs-keyword">int</span> count2;<span class="hljs-comment">//此为整数的个数</span>
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;count2);
+    <span class="hljs-built_in">memset</span>(b,<span class="hljs-number">0</span>,count*<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; count2; i++)
+    &#123;
+        <span class="hljs-keyword">int</span> temp;
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;temp);
+        b[temp]+=<span class="hljs-number">1</span>;
+    &#125;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; count; i++)
+    &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> t = <span class="hljs-number">0</span>; t &lt; b[i]; t++)
+        &#123;
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>,i);<span class="hljs-comment">//i就是temp，b[i]的值为有多少个temp</span>
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<p>对于桶排序，我认为最好的方式是读入的同时就往桶里塞，这样有两个好处</p>
+<ol>
+<li>减小空间占用</li>
+<li>减少读入数组的时间</li>
+</ol>
+<p>需要注意的是memset函数的最后一项参数，要有sizeof（int），因为memset的原理是把指定的空间变成指定值，这个空间需要我们自己来算。</p>
+<h2 id="桶排序的问题"><a href="#桶排序的问题" class="headerlink" title="桶排序的问题"></a>桶排序的问题</h2><p>占用空间大，桶排序的桶的个数是由待排序数组的最大项决定的，也就是说即便是给0，1，99这样的三个数排序，也需要构建99个桶，这是无法忍受的。</p>
 <blockquote>
-<p>这是较为轻松的操作，但是wsl不好操作，还是需要图形化的系统才能简单实现………………比如Windows下………………因为黑框框的wsl跟GUI天然不兼容…………虽然能够通过pip3经过一系列操作安装上tkinter库，但是…………难以调出GUI…………</p>
+<p>每种算法都有适合自己发光发热的地方，比如稠密的多项式用数组实现就很好，稠密的待排序序列用桶也很好。</p>
+<p>比如对单词进行排序<del>然而我们直接有strcmp</del></p>
 </blockquote>
-<h2 id="然后要做的"><a href="#然后要做的" class="headerlink" title="然后要做的"></a>然后要做的</h2><p>给每一个按钮写自己的方法。此处分工完成就好了。<strong><em>感觉应该同时包括把结果输出在屏幕上。</em></strong></p>
-<p>难点：大量数据的计算必然要用的算法，人类直觉想到的算法一般时间复杂度为O（n^3），或者n^2，复杂度极高，<del>甚至满足不了也不是不能用</del>，所以需要善用搜素引擎，寻找诸如求幂，排序等的快速算法，快排啊，快速幂啊什么的。当然，python中也是有已经实现好了的算法库的。可以用pip3 install 库名 来安装</p>
-<h2 id="最后要做的"><a href="#最后要做的" class="headerlink" title="最后要做的"></a>最后要做的</h2><p>封装成一般用户可以使用的样子</p>
-<p>此处内容在书中的第十八章程序打包有相关的描述</p>
-<h1 id="我的雏燕计划"><a href="#我的雏燕计划" class="headerlink" title="我的雏燕计划"></a>我的雏燕计划</h1><p>按照相同的处理思想，模块化的来写。</p>
-<h2 id="先写出底部三个页面的接口，然后写三个页面的内容"><a href="#先写出底部三个页面的接口，然后写三个页面的内容" class="headerlink" title="先写出底部三个页面的接口，然后写三个页面的内容"></a>先写出底部三个页面的接口，然后写三个页面的内容</h2><h3 id="正经的写法"><a href="#正经的写法" class="headerlink" title="正经的写法"></a>正经的写法</h3><p>学习html，css，xml等内容，or 读微信开发者文档，强行上手，</p>
-<p>我们的目标是，只写出按钮，并不实现按下按钮后能够做什么</p>
-<h3 id="不正经的写法"><a href="#不正经的写法" class="headerlink" title="不正经的写法"></a>不正经的写法</h3><p>直接PS绘制出图形然后直接html 用img标签放进去就完事</p>
-<h2 id="结束了……"><a href="#结束了……" class="headerlink" title="结束了……"></a>结束了……</h2><p>反正暂缓结题了，就在学习算法数据结构之余，随便写写得了</p>
+<h2 id="桶排序的时间复杂度"><a href="#桶排序的时间复杂度" class="headerlink" title="桶排序的时间复杂度"></a>桶排序的时间复杂度</h2><p>O（M+N），M为整数的范围，N为整数的个数，</p>
+<p>证明：N为填入桶中用的时间，下面的两重循环的值最大超不过M，超不过整数的范围</p>
+<p class="note note-warning">
+    暂时存疑
+</p>
+
+<h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p>目前对于基数排序，我做到是基本理解其过程，但是还没有想到怎么用链表实现。</p>
+<p>基数排序从最低位开始，填入基数个桶中。也就是说我们需要将待排序的数拆分成好几个基构成的。</p>
+<p>比如十进制的数，天然以10为基，所以先按照个位填入桶中，然后，再按照十位填入桶中，填入桶的顺序是刚刚按照个位填入桶的顺序。</p>
+<p><strong>举例子</strong> </p>
+<p>​            512 216 第二次都应该投入1这个桶中，按照什么顺序投入呢，因为2&lt;6 所以先投入512，再投入216</p>
+<p><strong>具体使用</strong></p>
+<p>​            三十二位计算机，2<sup>11</sup> 个桶，给该计算机能表示的所有整数排序，最多三趟就能排完。 先按照前11位，再中间，最后结尾11位</p>
+<div class="note note-success">
+            <p>暂时存疑too. </p>
+          </div>
+
+<p><strong>代码实现</strong> </p>
+<p>​            还存在一丢丢困难</p>
+<p>​            放入代办中吧先。</p>
+<h1 id="多重表"><a href="#多重表" class="headerlink" title="多重表"></a>多重表</h1><p>没什么好说的，非常奇技淫巧，同样期待着我的代码实现</p>
 
             </article>
             <hr>
@@ -222,9 +263,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
                     
-                      <a class="hover-with-bg" href="/categories/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E7%AD%96%E5%88%92/">项目策划</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%AC%AC%E4%B8%89%E7%AB%A0/">第三章</a>
                     
                   </div>
                 
@@ -232,7 +273,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E9%A1%B9%E7%9B%AE/">项目</a>
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
                     
                   </div>
                 
@@ -245,9 +286,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/12/%E6%9C%BA%E6%A2%B0%E6%B3%A2/">
+                      <a href="/2020/05/12/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E4%BB%AC/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">机械波</span>
+                        <span class="hidden-mobile">待办事项们</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -255,8 +296,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/05/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%89%EF%BC%89/">
-                        <span class="hidden-mobile">数据结构与算法（三）</span>
+                      <a href="/2020/05/12/%E6%9C%BA%E6%A2%B0%E6%B3%A2/">
+                        <span class="hidden-mobile">机械波</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -415,7 +456,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "关于项目的思考，包括计算器和雏燕&nbsp;",
+        "数据结构与算法（四）&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

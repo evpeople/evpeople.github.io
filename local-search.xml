@@ -4,6 +4,58 @@
   
   
   <entry>
+    <title>待办事项们</title>
+    <link href="/2020/05/12/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E4%BB%AC/"/>
+    <url>/2020/05/12/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E4%BB%AC/</url>
+    
+    <content type="html"><![CDATA[<p>我期待的事情，等待||正在发生</p><a id="more"></a><div>            <input type="checkbox" >多项式的链表实现          </div><div>            <input type="checkbox" >基数排序的链表实现          </div><div>            <input type="checkbox" >多重表的链表实现          </div><hr><p>备忘的一些写法</p><pre><code class="hljs markdown">&#123;% cb text, checked?, incline? %&#125;//默认后面就直接换行</code></pre><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"label label-primary"</span>&gt;</span>Label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"note note-primary"</span>&gt;</span>标签<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>/*可选的有primarysecondarysuccessdangerwarninginfolight*/</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>我期待的</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>待办事项</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>数据结构与算法（四）</title>
+    <link href="/2020/05/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <url>/2020/05/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p>第四天学习的内容，实现桶排序，看了多重表，跳过游标实现链表</p><a id="more"></a><h1 id="关于桶排序"><a href="#关于桶排序" class="headerlink" title="关于桶排序"></a>关于桶排序</h1><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bucketsort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[],<span class="hljs-keyword">int</span> count)</span></span><span class="hljs-function"></span>&#123;    <span class="hljs-comment">//桶排序，空间占用极大</span>    <span class="hljs-keyword">int</span> b[count];    <span class="hljs-keyword">int</span> count2;<span class="hljs-comment">//此为整数的个数</span>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;count2);    <span class="hljs-built_in">memset</span>(b,<span class="hljs-number">0</span>,count*<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; count2; i++)    &#123;        <span class="hljs-keyword">int</span> temp;        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;temp);        b[temp]+=<span class="hljs-number">1</span>;    &#125;    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; count; i++)    &#123;        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> t = <span class="hljs-number">0</span>; t &lt; b[i]; t++)        &#123;            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>,i);<span class="hljs-comment">//i就是temp，b[i]的值为有多少个temp</span>        &#125;    &#125;&#125;</code></pre><p>对于桶排序，我认为最好的方式是读入的同时就往桶里塞，这样有两个好处</p><ol><li>减小空间占用</li><li>减少读入数组的时间</li></ol><p>需要注意的是memset函数的最后一项参数，要有sizeof（int），因为memset的原理是把指定的空间变成指定值，这个空间需要我们自己来算。</p><h2 id="桶排序的问题"><a href="#桶排序的问题" class="headerlink" title="桶排序的问题"></a>桶排序的问题</h2><p>占用空间大，桶排序的桶的个数是由待排序数组的最大项决定的，也就是说即便是给0，1，99这样的三个数排序，也需要构建99个桶，这是无法忍受的。</p><blockquote><p>每种算法都有适合自己发光发热的地方，比如稠密的多项式用数组实现就很好，稠密的待排序序列用桶也很好。</p><p>比如对单词进行排序<del>然而我们直接有strcmp</del></p></blockquote><h2 id="桶排序的时间复杂度"><a href="#桶排序的时间复杂度" class="headerlink" title="桶排序的时间复杂度"></a>桶排序的时间复杂度</h2><p>O（M+N），M为整数的范围，N为整数的个数，</p><p>证明：N为填入桶中用的时间，下面的两重循环的值最大超不过M，超不过整数的范围</p><p class="note note-warning">    暂时存疑</p><h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p>目前对于基数排序，我做到是基本理解其过程，但是还没有想到怎么用链表实现。</p><p>基数排序从最低位开始，填入基数个桶中。也就是说我们需要将待排序的数拆分成好几个基构成的。</p><p>比如十进制的数，天然以10为基，所以先按照个位填入桶中，然后，再按照十位填入桶中，填入桶的顺序是刚刚按照个位填入桶的顺序。</p><p><strong>举例子</strong> </p><p>​            512 216 第二次都应该投入1这个桶中，按照什么顺序投入呢，因为2&lt;6 所以先投入512，再投入216</p><p><strong>具体使用</strong></p><p>​            三十二位计算机，2<sup>11</sup> 个桶，给该计算机能表示的所有整数排序，最多三趟就能排完。 先按照前11位，再中间，最后结尾11位</p><div class="note note-success">            <p>暂时存疑too. </p>          </div><p><strong>代码实现</strong> </p><p>​            还存在一丢丢困难</p><p>​            放入代办中吧先。</p><h1 id="多重表"><a href="#多重表" class="headerlink" title="多重表"></a>多重表</h1><p>没什么好说的，非常奇技淫巧，同样期待着我的代码实现</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据结构与算法</category>
+      
+      <category>第三章</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机科学</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>机械波</title>
     <link href="/2020/05/12/%E6%9C%BA%E6%A2%B0%E6%B3%A2/"/>
     <url>/2020/05/12/%E6%9C%BA%E6%A2%B0%E6%B3%A2/</url>
