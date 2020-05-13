@@ -4,11 +4,38 @@
   
   
   <entry>
+    <title>数据结构与算法（五）</title>
+    <link href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%94%EF%BC%89/"/>
+    <url>/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%94%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p>今天啊，今天是奋力不咕咕的一天,虽然创建文档的时间是晚上十一点，但真正开始动笔已经是第二天0点12分了。今天的内容，关于栈。</p><a id="more"></a><h1 id="栈的操作"><a href="#栈的操作" class="headerlink" title="栈的操作"></a>栈的操作</h1><p>进栈，出栈。是后进先出的ADT</p><ul><li>一个特性：<strong>唯一可见元素是首元素</strong></li></ul><h1 id="栈的实现"><a href="#栈的实现" class="headerlink" title="栈的实现"></a>栈的实现</h1><p>栈这种结构本身是一个表，所以数组，链表（指针），都可以用于实现栈。一个是顺序，一个非顺序</p><p class="note note-warning"> 对于栈来说，顺序or非顺序存储，没有区别，但是数组的栈的总大小是确定的 </p><p>具体的c代码实现……再次列入待办事项中</p><h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>栈的各种操作都是常数时间，但是栈超出界限的时候，就会程序崩溃，所以仔细检查是有必要的。</p><h1 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h1><h2 id="符号配对"><a href="#符号配对" class="headerlink" title="符号配对"></a>符号配对</h2><p>检测是否每个 “{” ，都有对应的 “}”，同时我联想到，/* 与 */ 也可这样判定。只用将两个符号组成的结构体压入栈中，并且处理好前进后退</p><h3 id="具体算法"><a href="#具体算法" class="headerlink" title="具体算法"></a>具体算法</h3><p>自然语言实现</p><p>做一个空栈，读入字符直到文件末尾，读入的过程是这样的，从首字符开始，读入栈中，做判断，判断是保留还是弹出。</p><p>更实际的描述为开放的符号比如  <em>(、{、[、</em> ，push到栈里，如果字符为封闭字符 <em>）、}、]</em> ，且为空栈，则报错。若非空栈，则pop出栈里面的这个开放字符，跟封闭符号进行比较。若不配对，报错。当读到文件尾巴时，若非空栈，仍报错。</p><p class="note note-warning">栈中只有开放符号！<\p><p>c语言实现</p><p class="note note-primary">进入待办事项吃灰吧</p><h3 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h3><h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3><p>为明天的内容吧</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据结构与算法</category>
+      
+      <category>第三章</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机科学</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>待办事项们</title>
     <link href="/2020/05/12/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E4%BB%AC/"/>
     <url>/2020/05/12/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E4%BB%AC/</url>
     
-    <content type="html"><![CDATA[<p>我期待的事情，等待||正在发生</p><a id="more"></a><div>            <input type="checkbox" >多项式的链表实现          </div><div>            <input type="checkbox" >基数排序的链表实现          </div><div>            <input type="checkbox" >多重表的链表实现          </div><hr><p>备忘的一些写法</p><pre><code class="hljs markdown">&#123;% cb text, checked?, incline? %&#125;//默认后面就直接换行</code></pre><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"label label-primary"</span>&gt;</span>Label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"note note-primary"</span>&gt;</span>标签<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>/*可选的有primarysecondarysuccessdangerwarninginfolight*/</code></pre>]]></content>
+    <content type="html"><![CDATA[<p>我期待的事情，等待||正在发生</p><a id="more"></a><ul><li><input disabled="" type="checkbox"> 多项式的链表实现</li></ul><ul><li><input disabled="" type="checkbox"> 基数排序的链表实现</li></ul><ul><li><input disabled="" type="checkbox"> <p>多重表的链表实现</p></li><li><input disabled="" type="checkbox"> <p>栈的c语言实现，包括链表和数组</p></li></ul><hr><p>备忘的一些写法</p><pre><code class="hljs markdown">&#123;% cb text, checked?, incline? %&#125;//默认后面就直接换行</code></pre><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"label label-primary"</span>&gt;</span>Label<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></code></pre><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"note note-primary"</span>&gt;</span>标签<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>/*可选的有primarysecondarysuccessdangerwarninginfolight*/</code></pre>]]></content>
     
     
     <categories>
