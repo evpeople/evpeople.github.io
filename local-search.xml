@@ -31,6 +31,33 @@
   
   
   <entry>
+    <title>数据结构与算法（六）</title>
+    <link href="/2020/05/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E5%85%AD%EF%BC%89/"/>
+    <url>/2020/05/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E5%85%AD%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p>关于栈的其他运用，后缀表达式，函数调用,以及队列ADT</p><a id="more"></a><h1 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h1><h2 id="计算后缀表达式的c实现"><a href="#计算后缀表达式的c实现" class="headerlink" title="计算后缀表达式的c实现"></a>计算后缀表达式的c实现</h2><ul><li><input disabled="" type="checkbox"> 再次待办</li></ul><h2 id="将中缀表达式变为后缀表达式的c实现"><a href="#将中缀表达式变为后缀表达式的c实现" class="headerlink" title="将中缀表达式变为后缀表达式的c实现"></a>将中缀表达式变为后缀表达式的c实现</h2><ul><li><input disabled="" type="checkbox"> 再次待办</li></ul><h1 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h1><p>一个奇妙的想法，函数调用类似于平衡符号，因为都是又开放括号（进入函数）封闭括号（return）</p><ul><li>栈溢出为什么会无法调试，程序崩溃。因为栈的信息被冲毁了，返回地址凉凉了，找不到了。</li></ul><h2 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h2><p>定义：最后一行的递归调用，可以通过将递归调用变成goto语句并且在其前方加上对函数每个参数的赋值语句而手动消除</p><p class="note note-waring">不要这么做，编译器会帮你这么优化的# 队列ADT<p>没什么好说的</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据结构与算法</category>
+      
+      <category>第六章</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机科学</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>数据结构与算法（五）</title>
     <link href="/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%94%EF%BC%89/"/>
     <url>/2020/05/13/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%94%EF%BC%89/</url>
