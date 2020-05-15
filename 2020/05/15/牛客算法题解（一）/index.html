@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>数据结构与算法（三） - 某人写字的地方</title>
+  <title>牛客算法题解（一） - 某人写字的地方</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -141,8 +141,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-05-11 22:43">
-                    星期一, 五月 11日 2020, 10:43 晚上
+                  <time datetime="2020-05-15 22:01">
+                    星期五, 五月 15日 2020, 10:01 晚上
                   </time>
                 </div>
               
@@ -152,7 +152,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    475 字
+                    1.1k 字
                   </span>
                 
 
@@ -162,7 +162,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    4
+                    14
                      分钟
                   </span>
                 
@@ -192,48 +192,156 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 天前
+                  本文最后更新于：1 小时前
                 
               </p>
             
             <article class="markdown-body">
-              <p>第三天学习的内容，链表的复习，多项式ADT</p>
+              <p>5.15号，第一题的暴力解法，优化过程，出过的错误，以及对拍随机数代码。</p>
 <a id="more"></a>
 
+<p>题目内容</p>
+<p>/*</p>
+<p><em>链接：<a href="https://ac.nowcoder.com/acm/problem/14583" target="_blank" rel="noopener">https://ac.nowcoder.com/acm/problem/14583</a></em></p>
+<p><em>来源：牛客网</em></p>
+<p><em>从前，有n只萌萌的糖糖，他们分成了两组一起玩游戏。他们会排成一排，第i只糖糖会随机得到一个能力值bi。从第i秒的时候，第i只糖糖就可以消灭掉所有排在他前面的和他不是同一组的且能力值小于他的糖糖。</em></p>
+<p><em>为了使游戏更加有趣，糖糖的爸爸，娇姐，会发功m次，第i次发功的时间为ci，则在第ci秒结束后，b1,b2,…..,bci都会增加1.</em></p>
+<p><em>现在，娇姐想知道在第n秒后，会有多少只糖糖存活下来。</em></p>
+<p><em>*/</em></p>
+<h1 id="我的暴力模拟法"><a href="#我的暴力模拟法" class="headerlink" title="我的暴力模拟法"></a>我的暴力模拟法</h1><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string.h&gt;</span></span>
 
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    
+    <span class="hljs-keyword">int</span> T,n,m;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;T);
 
-<h1 id="需要注意的内容"><a href="#需要注意的内容" class="headerlink" title="需要注意的内容"></a>需要注意的内容</h1><ol>
-<li>声明指向一个结构体的指针并不能创造该结构体，只是给了足够的空间来容纳该指针。所以必须要malloc</li>
-<li>而对于free而言，free之后，指针指向的地址没变，但是此处的内容已经无意义了，不再受到保护，随时都会发现值被改变</li>
-<li>malloc的sizeof应该是结构体的大小，而不是指针的大小</li>
-<li>对于删除操作，删除前应该先记下下一个节点的位置</li>
+    <span class="hljs-keyword">while</span> (T&gt;<span class="hljs-number">0</span>)
+    &#123;
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>,&amp;n,&amp;m);
+        <span class="hljs-keyword">int</span> temp=n;
+        temp++;
+        <span class="hljs-keyword">int</span> t[n];  <span class="hljs-comment">//那一组</span>
+        <span class="hljs-keyword">int</span> ts[n]; <span class="hljs-comment">//能力值</span>
+        <span class="hljs-keyword">int</span> fg[m];
+        <span class="hljs-built_in">memset</span>(t,<span class="hljs-number">0</span>,n*<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
+        <span class="hljs-built_in">memset</span>(ts,<span class="hljs-number">0</span>,n*<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
+        <span class="hljs-built_in">memset</span>(fg,<span class="hljs-number">0</span>,n*<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
+        <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;
+        n++;
+        <span class="hljs-keyword">while</span> (n &gt; <span class="hljs-number">1</span>)
+        &#123;
+        	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>, &amp;t[i], &amp;ts[i]);
+            i++;
+            n--;
+        &#125;
+        i=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">while</span> (m&gt;<span class="hljs-number">0</span>)
+        &#123;
+            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;fg[i]);
+            i++;
+            m--;
+        &#125;
+        i=<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">int</span> fgs=<span class="hljs-number">0</span>;<span class="hljs-comment">//发功次数</span>
+        n=temp;
+        <span class="hljs-keyword">while</span> (i&lt;n)
+        &#123;
+            <span class="hljs-comment">//i为秒数</span>
+            <span class="hljs-keyword">int</span> temp1=i<span class="hljs-number">-1</span>;
+            <span class="hljs-keyword">while</span> (temp1&gt;=<span class="hljs-number">0</span>)
+            &#123;
+                <span class="hljs-keyword">if</span> (t[temp1]!=t[i])
+                &#123;
+                    ts[temp1]=ts[temp1]&gt;=ts[i]?ts[temp1]:<span class="hljs-number">0</span>;
+                &#125;
+                <span class="hljs-comment">//此处必然可以优化</span>
+                temp1--;
+            &#125;
+            <span class="hljs-comment">//以上在消灭灭糖糖</span>
+            <span class="hljs-comment">//一下是发功</span>
+            <span class="hljs-comment">//啊啊啊啊，这些本来都该用for循环来着</span>
+            temp=<span class="hljs-number">0</span>;
+            <span class="hljs-keyword">if</span> (i==fg[fgs])
+            &#123;
+                <span class="hljs-keyword">while</span> (temp&lt;=i)
+                &#123;
+                    <span class="hljs-keyword">if</span> (ts[temp]!=<span class="hljs-number">0</span>)
+                    &#123;
+                        ts[temp]++;
+                    &#125;
+                    
+                    temp++;
+                &#125;
+                fgs++;
+            &#125;
+            i++;
+            
+        &#125;
+        <span class="hljs-keyword">int</span> temp1=<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">while</span> (temp1&lt;n)
+        &#123;
+            <span class="hljs-keyword">if</span> (ts[temp1]!=<span class="hljs-number">0</span>)
+            &#123;
+                ans++;
+            &#125;
+            temp1++;
+        &#125;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>,ans);
+        T--;
+    &#125;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
+
+<h2 id="在写的时候遇见的问题（按照恶心程度排序"><a href="#在写的时候遇见的问题（按照恶心程度排序" class="headerlink" title="在写的时候遇见的问题（按照恶心程度排序"></a>在写的时候遇见的问题（按照恶心程度排序</h2><ol>
+<li>糖糖从1开始而不是从0开始</li>
+<li>相等的时候不杀</li>
+<li>没了</li>
 </ol>
-<h1 id="链表的应用"><a href="#链表的应用" class="headerlink" title="链表的应用"></a>链表的应用</h1><h2 id="多项式ADT"><a href="#多项式ADT" class="headerlink" title="多项式ADT"></a>多项式ADT</h2><p><strong><em>多项式可以用于实现大整数的四则运算</em></strong></p>
-<h3 id="数组实现"><a href="#数组实现" class="headerlink" title="数组实现"></a>数组实现</h3><pre><code class="hljs c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span></span>
-<span class="hljs-class">&#123;</span>
-    <span class="hljs-keyword">int</span> coedffArray[maxDegree+<span class="hljs-number">1</span>];
-    <span class="hljs-keyword">int</span> highPower;
-&#125;  * polynomial;</code></pre>
+<p>但是这个debug用了我快1h，还是在有对拍的情况下。</p>
+<p>说到对拍，结尾会附上这道题的对拍随机数代码</p>
+<h2 id="开始挠头想优化"><a href="#开始挠头想优化" class="headerlink" title="开始挠头想优化"></a>开始挠头想优化</h2><h3 id="分析算法的复杂度"><a href="#分析算法的复杂度" class="headerlink" title="分析算法的复杂度"></a>分析算法的复杂度</h3><p>读入数据为n+m</p>
+<p>消灭糖糖为1^2^+2^2^……=n^3^</p>
+<p>给糖糖升级，为n^2^ </p>
+<p>输出结果为n</p>
+<p>题目的数据范围为1&lt;=n&lt;=50000，(5*10^4^ )^2^ =10^9^ ,明显是不可接受的算法</p>
+<p>然后开始做优化。</p>
+<p>当然是从消灭和升级入手</p>
+<p>消灭的</p>
+<pre><code class="hljs plain">while (temp1&gt;&#x3D;0)
+	&#123;
+    	if (t[temp1]!&#x3D;t[i])
+        	&#123;
+    	        ts[temp1]&#x3D;ts[temp1]&gt;&#x3D;ts[i]?ts[temp1]:0;
+            &#125;
+        temp1--;
+	&#125;</code></pre>
 
+<p>这部分实际上是在通过一个O（n）的遍历来判断<code>ts[temp1]</code>前面的数据的大小如何。</p>
+<h3 id="思想（并没有按照可行性排序"><a href="#思想（并没有按照可行性排序" class="headerlink" title="思想（并没有按照可行性排序"></a>思想（并没有按照可行性排序</h3><p>二维数组or结构体，不同的组放入不同的数组里，但是被放入的数组中仍保留着自己是第几个元素，这样的话平均，可以少遍历一半的内容,之后陷入僵局</p>
+<h3 id="从另一个角度想（从后往前遍历"><a href="#从另一个角度想（从后往前遍历" class="headerlink" title="从另一个角度想（从后往前遍历"></a>从另一个角度想（从后往前遍历</h3><p>增加战力，实际上不改变第i个人与前面每个人的差值，所以我们先不让人死，同时加完战力</p>
+<blockquote>
+<p>举例:50,1,2,3,4,5,6,7,8,9,20,30,53.</p>
+<p>同时50与后面不同组。在第3秒，第4秒，第5秒……都加了战力</p>
+<p>正常而言，前面都杀不死他，到了53，自然杀不死。</p>
+<p>而假如：50，49，48，47，53.</p>
+<p>能通过加战力使得后面杀不死他的本身就确实是杀不死的，所以这种想法有可行性</p>
+</blockquote>
+<h4 id="分析复杂度"><a href="#分析复杂度" class="headerlink" title="分析复杂度"></a>分析复杂度</h4><p>读入为n+m，添加战力是m*n，然后从后往前比较</p>
+<blockquote>
+<p>如果第<em>i</em>个人的战力小于后面另一个队的最大战力值，则一定会死</p>
+</blockquote>
+<p>假如我可以写出O（1）的算法，知道i，立刻知道后面队的最大战力，就能把复杂度降低为n。</p>
+<p>方法，在读入数据的时候用另一个数组直接存就ok了。</p>
+<p>那这么看，添加战力这玩意好烦，</p>
+<p>再优化。</p>
+<p>所谓添加战力，实际上就是数列修改问题。</p>
+<p>所以用一个数组维护差值，再对差分数组求前缀和就ok了。这样O（1）得到修改后的值。</p>
+<h3 id="总结优化思路"><a href="#总结优化思路" class="headerlink" title="总结优化思路"></a>总结优化思路</h3><p>从后往前遍历最大值，一个数组维护最大值，一个数组求差分，一个数组求前缀后</p>
+<h3 id="c的实现"><a href="#c的实现" class="headerlink" title="c的实现"></a>c的实现</h3><p>待办里</p>
 
-
-<p>在数组中存储多项式各项的系数，然后进行加减乘除即可</p>
-<p>其中maxDegree是已知的多项式可能存在的最大的次数，而highPower为目前一个特定多项式的最大项的次数。</p>
-<h4 id="加减"><a href="#加减" class="headerlink" title="加减"></a>加减</h4><p>这样对多项式做加减法之前，先将数组赋值为0之后再给每一个特定的多项式赋值。然后进行加减的途中先比较最大项那个更大一些。然后加减</p>
-<h4 id="乘除"><a href="#乘除" class="headerlink" title="乘除"></a>乘除</h4><p>乘除法需要注意</p>
-<ol>
-<li>是否超过了可能存在的最大次数</li>
-<li>乘除认为做了分配律，第一个多项式的每一项 ÷ || ×  第二个多项式，具体的实现就是两个套着的循环</li>
-</ol>
-<h4 id="数组实现的问题"><a href="#数组实现的问题" class="headerlink" title="数组实现的问题"></a>数组实现的问题</h4><p>对于稠密的多项式，数组非常ok，但是对于不稠密的，大量的时间用在了乘0，效率极低。</p>
-<h3 id="链表实现"><a href="#链表实现" class="headerlink" title="链表实现"></a>链表实现</h3><ul>
-<li><input disabled="" type="checkbox"> 等待之后几天做练习题的时候再实现</li>
-</ul>
-<h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><h3 id="前提：桶排序"><a href="#前提：桶排序" class="headerlink" title="前提：桶排序"></a>前提：桶排序</h3><ul>
-<li><input disabled="" type="checkbox"> 等待实现的数组桶排序</li>
-<li><input disabled="" type="checkbox"> 等待实现的基数排序</li>
-</ul>
-<h2 id="多重表"><a href="#多重表" class="headerlink" title="多重表"></a>多重表</h2>
             </article>
             <hr>
             <div>
@@ -242,9 +350,11 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/">算法题目</a>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%AC%AC%E4%B8%89%E7%AB%A0/">第三章</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/%E7%89%9B%E5%AE%A2/">牛客</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98%E7%9B%AE/%E7%89%9B%E5%AE%A2/%E7%AC%AC%E4%B8%80%E6%AC%A1/">第一次</a>
                     
                   </div>
                 
@@ -252,7 +362,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/">算法刷题</a>
                     
                   </div>
                 
@@ -265,9 +375,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/12/%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%80%9D%E8%80%83%EF%BC%8C%E5%8C%85%E6%8B%AC%E8%AE%A1%E7%AE%97%E5%99%A8%E5%92%8C%E9%9B%8F%E7%87%95/">
+                      <a href="/2020/05/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%83%EF%BC%89/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">关于项目的思考，包括计算器和雏燕</span>
+                        <span class="hidden-mobile">数据结构与算法（七）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -275,8 +385,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/05/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/">
-                        <span class="hidden-mobile">数据结构与算法（二）</span>
+                      <a href="/2020/05/14/%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE%EF%BC%88%E4%B8%80%EF%BC%89/">
+                        <span class="hidden-mobile">算法公开课（一）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -435,7 +545,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "数据结构与算法（三）&nbsp;",
+        "牛客算法题解（一）&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
