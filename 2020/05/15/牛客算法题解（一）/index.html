@@ -152,7 +152,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.1k 字
+                    1.8k 字
                   </span>
                 
 
@@ -162,7 +162,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    14
+                    24
                      分钟
                   </span>
                 
@@ -192,7 +192,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 天前
+                  本文最后更新于：2 分钟前
                 
               </p>
             
@@ -340,7 +340,129 @@
 <p>所谓添加战力，实际上就是数列修改问题。</p>
 <p>所以用一个数组维护差值，再对差分数组求前缀和就ok了。这样O（1）得到修改后的值。</p>
 <h3 id="总结优化思路"><a href="#总结优化思路" class="headerlink" title="总结优化思路"></a>总结优化思路</h3><p>从后往前遍历最大值，一个数组维护最大值，一个数组求差分，一个数组求前缀后</p>
-<h3 id="c的实现"><a href="#c的实现" class="headerlink" title="c的实现"></a>c的实现</h3><p>待办里</p>
+<h3 id="c的实现"><a href="#c的实现" class="headerlink" title="c的实现"></a>c的实现</h3><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">TANGTANG</span></span>
+<span class="hljs-class">&#123;</span>
+    <span class="hljs-keyword">int</span> zu;
+    <span class="hljs-keyword">int</span> power;
+    <span class="hljs-keyword">int</span> different;
+    <span class="hljs-keyword">int</span> sum;
+    <span class="hljs-keyword">int</span> <span class="hljs-built_in">max</span>;
+    <span class="hljs-comment">//struct TANGTANG *nextDifferentPosition;</span>
+    <span class="hljs-keyword">int</span> nextDifferentPosition;
+&#125;tt;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">int</span> T;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;T);
+    <span class="hljs-keyword">while</span> (T&gt;<span class="hljs-number">0</span>)
+    &#123;
+        <span class="hljs-keyword">int</span> n,m;<span class="hljs-comment">//n为糖糖的个数，m为发功次数</span>
+        <span class="hljs-keyword">int</span>  temp;
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>,&amp;n,&amp;m);
+        n=<span class="hljs-number">5</span>;
+        m=<span class="hljs-number">4</span>;<span class="hljs-comment">//测试用数据</span>
+        n++;
+        tt one[<span class="hljs-number">7</span>];
+        <span class="hljs-keyword">int</span> *next[n];
+        temp=<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">while</span> (temp&lt;n)
+        &#123;
+            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>,&amp;one[temp].zu,&amp;one[temp].power);
+            <span class="hljs-keyword">if</span> (temp&gt;<span class="hljs-number">1</span>)
+            &#123;
+                one[temp].different=one[temp].power-one[temp<span class="hljs-number">-1</span>].power;
+                one[temp].sum=one[temp<span class="hljs-number">-1</span>].sum+one[temp].different;   
+  
+            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (temp==<span class="hljs-number">1</span>)
+            &#123;
+                one[temp].different=<span class="hljs-number">0</span>;
+                one[temp].sum=<span class="hljs-number">0</span>;
+            &#125;
+            <span class="hljs-comment">//sum,是在对差分数组求前缀和。此处不能求最大值，因为我要的最大值是从后往前</span>
+        
+            
+            
+            temp++;
+        &#125;
+        temp=<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;<span class="hljs-comment">//用于next</span>
+        <span class="hljs-keyword">int</span> changeNumeber[<span class="hljs-number">500</span>]=&#123;<span class="hljs-number">0</span>&#125;;
+        next[i]=&amp;changeNumeber[i];
+        i++;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">500</span>; i++)
+        &#123;
+            changeNumeber[i]=i;
+            next[i]=&amp;changeNumeber[i];
+        &#125;
+        
+        <span class="hljs-keyword">while</span> (temp&lt;n<span class="hljs-number">-1</span>)
+        &#123;
+            
+            <span class="hljs-keyword">if</span> (one[temp].zu==one[temp+<span class="hljs-number">1</span>].zu)
+            &#123;
+                one[temp].nextDifferentPosition=*next[i];
+            &#125;<span class="hljs-keyword">else</span>
+            &#123;
+                changeNumeber[i]=temp+<span class="hljs-number">1</span>;
+                next[i]=&amp;changeNumeber[i];
+                i++;
+            &#125;
+            temp++;
+            
+        &#125;
+        
+        temp=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> addpower[m];
+        <span class="hljs-keyword">while</span> (temp&lt;m)
+        &#123;
+            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;addpower[temp]);
+            temp++;
+        &#125;
+        temp=n;
+        <span class="hljs-keyword">while</span> (temp&gt;<span class="hljs-number">0</span>)
+        &#123;
+            <span class="hljs-keyword">if</span> (temp==n)
+            &#123;
+                one[temp].<span class="hljs-built_in">max</span>=one[temp].power;
+            &#125;<span class="hljs-keyword">else</span>
+            &#123;
+                one[temp].<span class="hljs-built_in">max</span>=one[temp+<span class="hljs-number">1</span>].<span class="hljs-built_in">max</span>&gt;one[temp].power?one[temp+<span class="hljs-number">1</span>].<span class="hljs-built_in">max</span>:one[temp].power;
+            &#125;
+            temp--;
+        &#125;
+
+        
+        
+        
+        T--;
+    &#125;
+    
+&#125;</code></pre>
+
+<p>问题：爆空间了，没能处理好怎么加能力，没处理好分组的问题</p>
+<h1 id="大佬的解法与学习"><a href="#大佬的解法与学习" class="headerlink" title="大佬的解法与学习"></a>大佬的解法与学习</h1><p>关于添加能力</p>
+<blockquote>
+<p>有影响的一定是1 - ci1，我们可以维护一个前缀和，Csum[i] 表示第i<em>i</em> 项前面有几次操作，这样做的意义是什么呢，对于Csum[j-1]-Csum[i-1]且j&gt;=i表示位置<em>i</em> 的糖糖比位置<em>j</em>多了几次赋值+1的操作。</p>
+</blockquote>
+<p>关于处理最大值</p>
+<blockquote>
+<p>当且仅当i+1&lt;=j&lt;=n位置存在和糖糖i不是一队且B[i]+Csum[j-1]-Csum[i-1]&lt;B[j]的时候，位置i的糖糖才会被击败，将式子移项即可发现，B[i]-Csum[i-1]&lt;B[j]-Csum[j-1]</p>
+</blockquote>
+<p>也就是比较B-Csum的值</p>
+<p>关于分组</p>
+<blockquote>
+<pre><code class="hljs c"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n; i &gt;= <span class="hljs-number">1</span>; i--)
+&#123;
+    <span class="hljs-keyword">int</span> sum = Max[team[i] ^ <span class="hljs-number">1</span>];
+    <span class="hljs-keyword">if</span> (sum &lt;= B[i] - Csum[i - <span class="hljs-number">1</span>])
+        cnt++;
+    Max[team[i]] = <span class="hljs-built_in">max</span>(Max[team[i]], B[i] - Csum[i - <span class="hljs-number">1</span>]);
+&#125;</code></pre>
+</blockquote>
+<p>不用考虑分组？？用的倒序遍历，因为找到了要比较的东西。实际上我自己写的内容还没到比较的部分，也没想到再开一个单纯的数组存储最大值，异或1为取反，对每一个zu，直接取反就能得到另外组的最大值</p>
 
             </article>
             <hr>
