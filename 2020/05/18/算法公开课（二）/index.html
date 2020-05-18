@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>数据结构与算法（四） - 某人写字的地方</title>
+  <title>算法公开课（二） - 某人写字的地方</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -141,8 +141,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-05-12 22:44">
-                    星期二, 五月 12日 2020, 10:44 晚上
+                  <time datetime="2020-05-18 21:26">
+                    星期一, 五月 18日 2020, 9:26 晚上
                   </time>
                 </div>
               
@@ -152,7 +152,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    693 字
+                    834 字
                   </span>
                 
 
@@ -162,7 +162,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    7
+                    8
                      分钟
                   </span>
                 
@@ -192,68 +192,79 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：6 天前
+                  本文最后更新于：28 分钟前
                 
               </p>
             
             <article class="markdown-body">
-              <p>第四天学习的内容，实现桶排序，看了多重表，跳过游标实现链表</p>
+              <p>突然发现，学习STL之后链表的各种C实现就不用费劲写了，只用好好想重点逻辑就好了</p>
 <a id="more"></a>
 
-<h1 id="关于桶排序"><a href="#关于桶排序" class="headerlink" title="关于桶排序"></a>关于桶排序</h1><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bucketsort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[],<span class="hljs-keyword">int</span> count)</span></span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-comment">//桶排序，空间占用极大</span>
-    <span class="hljs-keyword">int</span> b[count];
-    <span class="hljs-keyword">int</span> count2;<span class="hljs-comment">//此为整数的个数</span>
-    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;count2);
-    <span class="hljs-built_in">memset</span>(b,<span class="hljs-number">0</span>,count*<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; count2; i++)
-    &#123;
-        <span class="hljs-keyword">int</span> temp;
-        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>,&amp;temp);
-        b[temp]+=<span class="hljs-number">1</span>;
-    &#125;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; count; i++)
-    &#123;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> t = <span class="hljs-number">0</span>; t &lt; b[i]; t++)
-        &#123;
-            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>,i);<span class="hljs-comment">//i就是temp，b[i]的值为有多少个temp</span>
-        &#125;
-    &#125;
-&#125;</code></pre>
 
-<p>对于桶排序，我认为最好的方式是读入的同时就往桶里塞，这样有两个好处</p>
-<ol>
-<li>减小空间占用</li>
-<li>减少读入数组的时间</li>
+
+<h2 id="分治求解问题"><a href="#分治求解问题" class="headerlink" title="分治求解问题"></a>分治求解问题</h2><p>把一个复杂的问题分成两个或更多的相同或相似的子问题，再把子问题分成更小的子问题……直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并</p>
+<h2 id="递归求解"><a href="#递归求解" class="headerlink" title="递归求解"></a>递归求解</h2><p>写递归的时候要注意不能自己一个一个桃，就直接定好之后管tm</p>
+<h3 id="例一汉诺塔"><a href="#例一汉诺塔" class="headerlink" title="例一汉诺塔"></a>例一汉诺塔</h3><ol>
+<li>首先三个柱子进行分析</li>
+<li>前n个从A到C<ol>
+<li>则首先前n-1从A到B</li>
+<li>然后第n个从A到C</li>
+<li>最后前n-1个从B到C<ol>
+<li>则（即进入递归）</li>
 </ol>
-<p>需要注意的是memset函数的最后一项参数，要有sizeof（int），因为memset的原理是把指定的空间变成指定值，这个空间需要我们自己来算。</p>
-<h2 id="桶排序的问题"><a href="#桶排序的问题" class="headerlink" title="桶排序的问题"></a>桶排序的问题</h2><p>占用空间大，桶排序的桶的个数是由待排序数组的最大项决定的，也就是说即便是给0，1，99这样的三个数排序，也需要构建99个桶，这是无法忍受的。</p>
-<blockquote>
-<p>每种算法都有适合自己发光发热的地方，比如稠密的多项式用数组实现就很好，稠密的待排序序列用桶也很好。</p>
-<p>比如对单词进行排序<del>然而我们直接有strcmp</del></p>
-</blockquote>
-<h2 id="桶排序的时间复杂度"><a href="#桶排序的时间复杂度" class="headerlink" title="桶排序的时间复杂度"></a>桶排序的时间复杂度</h2><p>O（M+N），M为整数的范围，N为整数的个数，</p>
-<p>证明：N为填入桶中用的时间，下面的两重循环的值最大超不过M，超不过整数的范围</p>
-<p class="note note-warning">
-    暂时存疑
-</p>
-
-<h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p>目前对于基数排序，我做到是基本理解其过程，但是还没有想到怎么用链表实现。</p>
-<p>基数排序从最低位开始，填入基数个桶中。也就是说我们需要将待排序的数拆分成好几个基构成的。</p>
-<p>比如十进制的数，天然以10为基，所以先按照个位填入桶中，然后，再按照十位填入桶中，填入桶的顺序是刚刚按照个位填入桶的顺序。</p>
-<p><strong>举例子</strong> </p>
-<p>​            512 216 第二次都应该投入1这个桶中，按照什么顺序投入呢，因为2&lt;6 所以先投入512，再投入216</p>
-<p><strong>具体使用</strong></p>
-<p>​            三十二位计算机，2<sup>11</sup> 个桶，给该计算机能表示的所有整数排序，最多三趟就能排完。 先按照前11位，再中间，最后结尾11位</p>
-<div class="note note-success">
-            <p>暂时存疑too. </p>
-          </div>
-
-<p><strong>代码实现</strong> </p>
-<p>​            还存在一丢丢困难</p>
-<p>​            放入代办中吧先。</p>
-<h1 id="多重表"><a href="#多重表" class="headerlink" title="多重表"></a>多重表</h1><p>没什么好说的，非常奇技淫巧，同样期待着我的代码实现</p>
+</li>
+</ol>
+</li>
+<li>数学表达式 f(n)=2f(n-1)+1</li>
+</ol>
+<h3 id="给出二叉树求前序中序和后序"><a href="#给出二叉树求前序中序和后序" class="headerlink" title="给出二叉树求前序中序和后序"></a>给出二叉树求前序中序和后序</h3><p>二叉树：每个节点最多有两个子树（节点分左右</p>
+<p>满二叉树：除了最后一层无子节点，其他都满了</p>
+<p>完全二叉树，除了最后一层外，每一层均达到最大值，最后一层值缺少右边的若干个</p>
+<p>性质：左=根*2，右=根*2+1,这样的二叉树用数组就能直接存下来</p>
+<p>先序遍历：首先访问根节点，然后遍历左子树，再遍历右子树</p>
+<p>中序：左   根   右  //排序后就像从左往右写</p>
+<p>后序： 左  右   根 </p>
+<p>//以上三个序是考虑根的位置</p>
+<p>层序：从上到下从左往右。</p>
+<p><strong>题目实质</strong> 根据已知信息画出树的全貌</p>
+<p>中序遍历给出从左往右怎么排序</p>
+<p>前序遍历给出那些是根，从而得到树的全貌</p>
+<p><em>已知前序后序，中序不唯一</em></p>
+<p>具体实现的时候，先写出遍历函数，然后递归遍历左子树右子树，输出时先左后右。</p>
+<p><strong><em>作为人类，只需要想一层</em></strong></p>
+<h3 id="归并排序，快速排序"><a href="#归并排序，快速排序" class="headerlink" title="归并排序，快速排序"></a>归并排序，快速排序</h3><h4 id="再谈基数排序"><a href="#再谈基数排序" class="headerlink" title="再谈基数排序"></a>再谈基数排序</h4><p>当我们把桶竖着放的时候，顺序是显然的</p>
+<p>所谓的增加的基数，可以开99个桶，然后塞进去</p>
+<h4 id="初探计数排序"><a href="#初探计数排序" class="headerlink" title="初探计数排序"></a>初探计数排序</h4><p>对桶求前缀和，</p>
+<p>可以轻松知道某个大小的数在第几位</p>
+<h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><p>待排子区间一分为二，讲子区间排序，然后讲已经排好序的两个序列合并</p>
+<ul>
+<li>怎么合并呢<ul>
+<li>从首位比较，然后放好小的之后，小的那个指针后移，到所在序列的下一项</li>
+</ul>
+</li>
+</ul>
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>选择一个基准，小于基准放左边，大于基准放右边，然后对左右继续上述操作</p>
+<p>复杂度均为nlog（n）</p>
+<ul>
+<li>每一次为n，然后有log（n）层。</li>
+</ul>
+<h3 id="求一个序列第k大数"><a href="#求一个序列第k大数" class="headerlink" title="求一个序列第k大数"></a>求一个序列第k大数</h3><p>先选一个基准，假设基准右边&lt;=k，则第k大一定在左边，则右边直接丢掉</p>
+<p>复杂度logn，不断二分序列</p>
+<h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><h3 id="算法类"><a href="#算法类" class="headerlink" title="算法类"></a>算法类</h3><p>_Tp min(_Tp a,_Tp b)</p>
+<p>_Tp为模板类，传进去什么传出来什么</p>
+<p>sort（a,a+10）,传进去的是指针，然后是左闭右开的a和a+10，</p>
+<p>对结构体排序</p>
+<ul>
+<li>自定义比较函数，返回bool值，return a.x&lt;b.x; 无等号，</li>
+<li>重定义&lt;运算符</li>
+<li>写在结构体里面</li>
+<li>bool operator &lt; (ty b)</li>
+<li>{</li>
+<li>return     x&lt;b;</li>
+<li>}</li>
+</ul>
+<p>求下一个排列</p>
+<p>把 123 变成 132 213</p>
 
             </article>
             <hr>
@@ -263,9 +274,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%AC%AC%E4%B8%89%E7%AB%A0/">第三章</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E5%88%86%E6%B2%BBand%E9%80%92%E5%BD%92-STL/">分治and递归&&STL</a>
                     
                   </div>
                 
@@ -273,7 +284,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
                     
                   </div>
                 
@@ -286,18 +297,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/12/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E4%BB%AC/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">待办事项们</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/05/12/%E6%9C%BA%E6%A2%B0%E6%B3%A2/">
-                        <span class="hidden-mobile">机械波</span>
+                      <a href="/2020/05/17/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                        <span class="hidden-mobile">牛客算法题解（二）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -456,7 +461,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "数据结构与算法（四）&nbsp;",
+        "算法公开课（二）&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

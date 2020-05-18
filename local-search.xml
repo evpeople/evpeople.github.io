@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>算法公开课（二）</title>
+    <link href="/2020/05/18/%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <url>/2020/05/18/%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p>突然发现，学习STL之后链表的各种C实现就不用费劲写了，只用好好想重点逻辑就好了</p><a id="more"></a><h2 id="分治求解问题"><a href="#分治求解问题" class="headerlink" title="分治求解问题"></a>分治求解问题</h2><p>把一个复杂的问题分成两个或更多的相同或相似的子问题，再把子问题分成更小的子问题……直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并</p><h2 id="递归求解"><a href="#递归求解" class="headerlink" title="递归求解"></a>递归求解</h2><p>写递归的时候要注意不能自己一个一个桃，就直接定好之后管tm</p><h3 id="例一汉诺塔"><a href="#例一汉诺塔" class="headerlink" title="例一汉诺塔"></a>例一汉诺塔</h3><ol><li>首先三个柱子进行分析</li><li>前n个从A到C<ol><li>则首先前n-1从A到B</li><li>然后第n个从A到C</li><li>最后前n-1个从B到C<ol><li>则（即进入递归）</li></ol></li></ol></li><li>数学表达式 f(n)=2f(n-1)+1</li></ol><h3 id="给出二叉树求前序中序和后序"><a href="#给出二叉树求前序中序和后序" class="headerlink" title="给出二叉树求前序中序和后序"></a>给出二叉树求前序中序和后序</h3><p>二叉树：每个节点最多有两个子树（节点分左右</p><p>满二叉树：除了最后一层无子节点，其他都满了</p><p>完全二叉树，除了最后一层外，每一层均达到最大值，最后一层值缺少右边的若干个</p><p>性质：左=根*2，右=根*2+1,这样的二叉树用数组就能直接存下来</p><p>先序遍历：首先访问根节点，然后遍历左子树，再遍历右子树</p><p>中序：左   根   右  //排序后就像从左往右写</p><p>后序： 左  右   根 </p><p>//以上三个序是考虑根的位置</p><p>层序：从上到下从左往右。</p><p><strong>题目实质</strong> 根据已知信息画出树的全貌</p><p>中序遍历给出从左往右怎么排序</p><p>前序遍历给出那些是根，从而得到树的全貌</p><p><em>已知前序后序，中序不唯一</em></p><p>具体实现的时候，先写出遍历函数，然后递归遍历左子树右子树，输出时先左后右。</p><p><strong><em>作为人类，只需要想一层</em></strong></p><h3 id="归并排序，快速排序"><a href="#归并排序，快速排序" class="headerlink" title="归并排序，快速排序"></a>归并排序，快速排序</h3><h4 id="再谈基数排序"><a href="#再谈基数排序" class="headerlink" title="再谈基数排序"></a>再谈基数排序</h4><p>当我们把桶竖着放的时候，顺序是显然的</p><p>所谓的增加的基数，可以开99个桶，然后塞进去</p><h4 id="初探计数排序"><a href="#初探计数排序" class="headerlink" title="初探计数排序"></a>初探计数排序</h4><p>对桶求前缀和，</p><p>可以轻松知道某个大小的数在第几位</p><h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><p>待排子区间一分为二，讲子区间排序，然后讲已经排好序的两个序列合并</p><ul><li>怎么合并呢<ul><li>从首位比较，然后放好小的之后，小的那个指针后移，到所在序列的下一项</li></ul></li></ul><h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>选择一个基准，小于基准放左边，大于基准放右边，然后对左右继续上述操作</p><p>复杂度均为nlog（n）</p><ul><li>每一次为n，然后有log（n）层。</li></ul><h3 id="求一个序列第k大数"><a href="#求一个序列第k大数" class="headerlink" title="求一个序列第k大数"></a>求一个序列第k大数</h3><p>先选一个基准，假设基准右边&lt;=k，则第k大一定在左边，则右边直接丢掉</p><p>复杂度logn，不断二分序列</p><h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><h3 id="算法类"><a href="#算法类" class="headerlink" title="算法类"></a>算法类</h3><p>_Tp min(_Tp a,_Tp b)</p><p>_Tp为模板类，传进去什么传出来什么</p><p>sort（a,a+10）,传进去的是指针，然后是左闭右开的a和a+10，</p><p>对结构体排序</p><ul><li>自定义比较函数，返回bool值，return a.x&lt;b.x; 无等号，</li><li>重定义&lt;运算符</li><li>写在结构体里面</li><li>bool operator &lt; (ty b)</li><li>{</li><li>return     x&lt;b;</li><li>}</li></ul><p>求下一个排列</p><p>把 123 变成 132 213</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法竞赛</category>
+      
+      <category>分治and递归&amp;&amp;STL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法竞赛</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>牛客算法题解（二）</title>
     <link href="/2020/05/17/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <url>/2020/05/17/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
