@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>算法公开课（三）</title>
+    <link href="/2020/05/21/%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <url>/2020/05/21/%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p>今天凑活听一听吧</p><a id="more"></a><h1 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>STL中的函数</p><p>lower_bound ,返回第一个符合条件的元素的位置，第一个大于等于这个数的位置</p><p>upper_bound 返回最后一个符合条件的元素的位置，第一个大于这个数的位置</p><p>（返回的是指针</p><ul><li>取区间中点为了不爆int，应该l+（r-l）</li><li>为了不死循环，看【1，2】，【2，3】</li><li>关于浮点数误差，循环除二然后比较</li><li>当有些问题进行验证更简单的时候，就用二分来验证</li></ul><p><img src="https://i.loli.net/2020/05/21/bX34mARTNrykWKE.png" srcset="/img/loading.gif" alt="image-20200521201922883"></p><p>假设有一个ans的，小于ans的直接晾干，大于ans时列式子计算用时，然后加起来看跟ans的关系</p><h2 id="最大值的最小or最小值的最大值"><a href="#最大值的最小or最小值的最大值" class="headerlink" title="最大值的最小or最小值的最大值"></a>最大值的最小or最小值的最大值</h2><p>二分，或贪心。</p><h2 id="N行4列的数，每一列选一个数，问使他们的和为0的情况有多少种"><a href="#N行4列的数，每一列选一个数，问使他们的和为0的情况有多少种" class="headerlink" title="N行4列的数，每一列选一个数，问使他们的和为0的情况有多少种"></a>N行4列的数，每一列选一个数，问使他们的和为0的情况有多少种</h2><ol><li>暴力，n^4^</li><li>先加前三列，然后第四列排序，然后查找是否有前三列和的相反数，n^3^</li><li>两列，两两相加，然后一列排序，然后查找相反数，复杂度n^2^ logn，（可用两个指针，然后从两头开始往中间走，若和为负则xxxx，若和为正则xxxx）</li><li></li></ol><h2 id="三分"><a href="#三分" class="headerlink" title="三分"></a>三分</h2><p>求单峰，单谷函数，求极值点</p><p>将左右界切成三分，然后每次删1/3，</p><p>或者对导数二分，</p><p>而导数用两个点求k，Δx很小</p><h2 id="01分数规划"><a href="#01分数规划" class="headerlink" title="01分数规划"></a>01分数规划</h2><p>一堆物品，有一个收益，有一个代价，给出一个方案，使得收益/代价 最大。</p><ol><li>首先证明以单个的受益/代价 的贪心是错的</li><li>先假设最大值大于等于x</li><li>然后移项可得<ol><li>收益-x代价大于等于0</li><li>所以贪心应为收益-x代价必须全选正的，</li><li>所以二分x，看求和结果是不是大于x</li><li>若不成立，说明这个x取大了</li><li>x为和，为最后的结果</li></ol></li><li>若为不是若干个而是k个，则应该让大于零的数应该有k个 </li></ol><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>倍增：</p><p>a的b次方膜p的值</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法竞赛</category>
+      
+      <category>二分，三分，01分数规划</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法竞赛</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>算法公开课（二）</title>
     <link href="/2020/05/18/%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <url>/2020/05/18/%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
