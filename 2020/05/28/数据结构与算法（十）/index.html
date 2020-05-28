@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>数据结构与算法（五） - 某人写字的地方</title>
+  <title>数据结构与算法（十） - 某人写字的地方</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -141,8 +141,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-05-13 23:02">
-                    星期三, 五月 13日 2020, 11:02 晚上
+                  <time datetime="2020-05-28 22:24">
+                    星期四, 五月 28日 2020, 10:24 晚上
                   </time>
                 </div>
               
@@ -152,7 +152,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    441 字
+                    296 字
                   </span>
                 
 
@@ -162,7 +162,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    4
+                    3
                      分钟
                   </span>
                 
@@ -192,36 +192,29 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：14 天前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <article class="markdown-body">
-              <p>今天啊，今天是奋力不咕咕的一天,虽然创建文档的时间是晚上十一点，但真正开始动笔已经是第二天0点12分了。今天的内容，关于栈。</p>
+              <p>AVL树的详细内容，单旋转 和 双旋转 作为 一眼看不懂的东西，明天再填</p>
 <a id="more"></a>
 
-<h1 id="栈的操作"><a href="#栈的操作" class="headerlink" title="栈的操作"></a>栈的操作</h1><p>进栈，出栈。是后进先出的ADT</p>
-<ul>
-<li>一个特性：<strong>唯一可见元素是首元素</strong></li>
-</ul>
-<h1 id="栈的实现"><a href="#栈的实现" class="headerlink" title="栈的实现"></a>栈的实现</h1><p>栈这种结构本身是一个表，所以数组，链表（指针），都可以用于实现栈。一个是顺序，一个非顺序</p>
-<p class="note note-warning"> 对于栈来说，顺序or非顺序存储，没有区别，但是数组的栈的总大小是确定的 </p>
-
-<p>具体的c代码实现……再次列入待办事项中</p>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>栈的各种操作都是常数时间，但是栈超出界限的时候，就会程序崩溃，所以仔细检查是有必要的。</p>
-<h1 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h1><h2 id="符号配对"><a href="#符号配对" class="headerlink" title="符号配对"></a>符号配对</h2><p>检测是否每个 “{” ，都有对应的 “}”，同时我联想到，/* 与 */ 也可这样判定。只用将两个符号组成的结构体压入栈中，并且处理好前进后退</p>
-<h3 id="具体算法"><a href="#具体算法" class="headerlink" title="具体算法"></a>具体算法</h3><p>自然语言实现</p>
-<p>做一个空栈，读入字符直到文件末尾，读入的过程是这样的，从首字符开始，读入栈中，做判断，判断是保留还是弹出。</p>
-<p>更实际的描述为开放的符号比如  <em>(、{、[、</em> ，push到栈里，如果字符为封闭字符 <em>）、}、]</em> ，且为空栈，则报错。若非空栈，则pop出栈里面的这个开放字符，跟封闭符号进行比较。若不配对，报错。当读到文件尾巴时，若非空栈，仍报错。</p>
-<p class="note note-warning">栈中只有开放符号！
-
-
-
-<p>c语言实现</p>
-<p class="note note-primary">进入待办事项吃灰吧
-</p>
-
-<h3 id="后缀表达式"><a href="#后缀表达式" class="headerlink" title="后缀表达式"></a>后缀表达式</h3><h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>左子树和右子树的高度最多差1的二叉查找树</p>
+<p>每一个节点中都保留着自身的高度信息</p>
+<p>由这个特点可以直到，除了插入以外，所有操作的时间复杂度为logN（即本身的深度），而插入操作因为可能破坏树的平衡，而很麻烦。</p>
+<h1 id="所以，我们怎么对待插入"><a href="#所以，我们怎么对待插入" class="headerlink" title="所以，我们怎么对待插入"></a>所以，我们怎么对待插入</h1><p>对树做旋转操作。</p>
+<p>在插入之后，只有从插入点到根节点的路径上的节点的平衡可能被改变。找到第一个新平衡破坏了AVL的节点，对它旋转，然后就完成了。</p>
+<h2 id="具体内容"><a href="#具体内容" class="headerlink" title="具体内容"></a>具体内容</h2><p>任意节点最多两个儿子，所以高度不平衡时，两棵子树的高度差能且只能为2</p>
+<ol>
+<li>在左儿子的左子树上插入</li>
+<li>在左儿子的右子树上插入</li>
+<li>在右儿子的左子树上插入</li>
+<li>在右儿子的右子树上插入</li>
+</ol>
+<p>对于1，4，对树进行单旋转，</p>
+<p>对于2，3，对树进行双旋转</p>
+<h3 id="单旋转"><a href="#单旋转" class="headerlink" title="单旋转"></a>单旋转</h3>
             </article>
             <hr>
             <div>
@@ -232,7 +225,7 @@
                     
                       <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%AC%AC%E4%B8%89%E7%AB%A0/">第三章</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%AC%AC%E5%9B%9B%E7%AB%A0/">第四章</a>
                     
                   </div>
                 
@@ -253,18 +246,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E5%85%AD%EF%BC%89/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">数据结构与算法（六）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/05/12/%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9%E4%BB%AC/">
-                        <span class="hidden-mobile">待办事项们</span>
+                      <a href="/2020/05/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%B9%9D%EF%BC%89/">
+                        <span class="hidden-mobile">数据结构与算法（九）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -423,7 +410,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "数据结构与算法（五）&nbsp;",
+        "数据结构与算法（十）&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
