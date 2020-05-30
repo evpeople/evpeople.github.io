@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>算法公开课（一） - 某人写字的地方</title>
+  <title>期末考试 - 某人写字的地方</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -141,8 +141,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-05-14 19:32">
-                    星期四, 五月 14日 2020, 7:32 晚上
+                  <time datetime="2020-05-30 23:21">
+                    星期六, 五月 30日 2020, 11:21 晚上
                   </time>
                 </div>
               
@@ -152,7 +152,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.5k 字
+                    353 字
                   </span>
                 
 
@@ -162,7 +162,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    16
+                    3
                      分钟
                   </span>
                 
@@ -192,169 +192,132 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：16 天前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <article class="markdown-body">
-              <p>内容包括：尺取法，前缀和，差分，贪心</p>
+              <p>复习安排</p>
 <a id="more"></a>
 
-<ol>
-<li>养成写题解的习惯</li>
-<li>存在每日一题，要做，刷题不能手生。</li>
-<li>至少独立思考半小时，不要对着别人的代码</li>
-</ol>
-<h1 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h1><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="什么是算法"><a href="#什么是算法" class="headerlink" title="什么是算法"></a>什么是算法</h3><h3 id="怎么评价一个算法"><a href="#怎么评价一个算法" class="headerlink" title="怎么评价一个算法"></a>怎么评价一个算法</h3><ol>
-<li>正确性</li>
-<li>可读性</li>
-<li>容错性（不考虑）</li>
-<li>时间复杂度</li>
-<li>空间复杂度</li>
-</ol>
-<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>O(1), 常数算法，与输入数据规模无关</p>
-<p>O（logn）</p>
-<p>O（根号n）</p>
-<p>O（n）线性时间复杂度</p>
-<p>将数据大小代入O中的n，得到的结果若10^8^ 级别的则时可以接受的算法，</p>
-<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><p>512M 一个int类型的数组，这个数组最大能开到512×1024×1024×8/32 ==10^8^这么大数组，第一个1024时kb，第二个是字节，第三个8是位数，int为32位。得出结果</p>
-<h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><ol>
-<li>定义<ol>
-<li>要点：不重复，不遗漏</li>
-<li>一一列举</li>
-</ol>
-</li>
-<li>优化枚举的思路——减少枚举次数<ol>
-<li>选择合适的枚举对象（找人，先枚举班级，然后枚举）</li>
-<li>选择合适的枚举方向（从前往后or从后往前）</li>
-<li>选择合适的数据维护方法（数据结构）</li>
-</ol>
-</li>
-<li>例题</li>
-</ol>
-<h3 id="例题1：最大正方形"><a href="#例题1：最大正方形" class="headerlink" title="例题1：最大正方形"></a>例题1：最大正方形</h3><p><img src="https://i.loli.net/2020/05/14/adi9EWp74lToxFq.png" srcset="/img/loading.gif" alt="image-20200514202949847"></p>
-<ul>
-<li>思考，几个点确定一个正方形：两个点即可，所以可以枚举两个点，然后计算出另外两个坐标，将另外两个点比较是否为‘#’</li>
-</ul>
-<h3 id="例题2：数列求和（前缀和）"><a href="#例题2：数列求和（前缀和）" class="headerlink" title="例题2：数列求和（前缀和）"></a>例题2：数列求和（前缀和）</h3><p><img src="C:%5CUsers%5C%E7%8E%8B%E5%96%86%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200514203431390.png" srcset="/img/loading.gif" alt="image-20200514203431390"></p>
-<ul>
-<li><p>想法：先考虑暴力怎么做。</p>
-</li>
-<li><p>优化</p>
-<ul>
-<li><p>主要时间复杂度瓶颈在哪里？</p>
-</li>
-<li><blockquote>
-<p>每次求和都要遍历区间</p>
-</blockquote>
-</li>
-<li><p>所以可以用sum[i]存储前n个数的和，sum[i]=sum[i-1]+a[i]</p>
-</li>
-<li><p>sum[i]称为<strong>前缀和</strong>，单次查询的复杂度优化为O（1）</p>
-</li>
-<li><p>能够用前缀xx的都要满足一个类似于“sum[i]=sum[i-1]+a[i]”的条件</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="例题3：数列修改问题（差分法）"><a href="#例题3：数列修改问题（差分法）" class="headerlink" title="例题3：数列修改问题（差分法）"></a>例题3：数列修改问题（差分法）</h3><p><img src="https://i.loli.net/2020/05/14/XzaRwjklZ4W9SEI.png" srcset="/img/loading.gif" alt="image-20200514204033460"></p>
-<ul>
-<li><p>优化：</p>
-<ul>
-<li><p>将对区间的修改变为对区间端点的修改（因为时间复杂度来自对区间的遍历）</p>
-<ul>
-<li><p>具体思考：考虑区间加的过程中什么值是区间段点处发生了变化，而区间内没有变化的</p>
-</li>
-<li><blockquote>
-<p>每个数与前面的差值</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>具体实现为用一个数组维护第i个数和前一个数的差值</p>
-<ul>
-<li>重点：还要再对delta数组做一个前缀和，才能O（1）后得到修改后的值</li>
-</ul>
-</li>
-<li><p>这种方法叫做<strong>差分</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="例题4：校门外的树（离散化操作）"><a href="#例题4：校门外的树（离散化操作）" class="headerlink" title="例题4：校门外的树（离散化操作）"></a>例题4：校门外的树（离散化操作）</h3><p><img src="https://i.loli.net/2020/05/14/1KTVApWtOlPYqBj.png" srcset="/img/loading.gif" alt="image-20200514204627106"></p>
-<ul>
-<li>暴力算法 easy</li>
-<li>计算每个节点被多少区间覆盖了。然后节点为0的个数</li>
-<li>第三种算法：<ul>
-<li>离散化操作</li>
-<li>区间为[1，100],[1000,2000],[5,110].</li>
-<li>并不用开2000大小的数组，而是将上面的数组重新编号，变成连续的数组</li>
-</ul>
-</li>
-</ul>
-<h3 id="例题5类似于最大子序列和（尺取法）"><a href="#例题5类似于最大子序列和（尺取法）" class="headerlink" title="例题5类似于最大子序列和（尺取法）"></a>例题5类似于最大子序列和（尺取法）</h3><p><img src="https://i.loli.net/2020/05/14/XlwgxE4UKp32DbF.png" srcset="/img/loading.gif" alt="image-20200514205604877"></p>
-<ul>
-<li>暴力的算法是n^3^</li>
-<li>用前缀和可以减去求和，变成n^2^</li>
-<li>用和<strong>最大子序列和的算法四</strong>相同的思想，发现<ul>
-<li>用区间和作为尺子，不断地向后平移。</li>
-<li>首先确定一个L，然后得到一个R，当L向后再平移的时候，R必然不能往前移动，只能往后面移动or原地不动</li>
-<li><strong>Two-pointer/尺取法/追逐法</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="例题6：按灯泡开关"><a href="#例题6：按灯泡开关" class="headerlink" title="例题6：按灯泡开关"></a>例题6：按灯泡开关</h3><p><img src="https://i.loli.net/2020/05/14/JPTXMYO4sEopRWF.png" srcset="/img/loading.gif" alt="image-20200514210645631"></p>
-<ul>
-<li>每个灯只按一次（因为2次恢复原样，3次同1次）</li>
-<li>仔细分析，发现第一列开关怎么按确定后，后面的所有的灯怎么按动已经确定了。因为第二列的开关可以弥补第一列开关的操作，但是最后一列不行。没有再后面一列弥补了。<ul>
-<li>得到，枚举对象应该为第一列的灯的按动方法</li>
-</ul>
-</li>
-<li>计算时间复杂度</li>
-<li>第一列开关按法为2^n^然后再×N×M，</li>
-<li>具体枚举方法，将亮灭看为2进制字符串，然后转化为十进制整数，然后枚举整数</li>
-<li>名字叫<strong>状态压缩</strong></li>
-</ul>
-<h2 id="位运算介绍"><a href="#位运算介绍" class="headerlink" title="位运算介绍"></a>位运算介绍</h2><p>左移右移等价于*/2 </p>
-<p>| 或</p>
-<p>&amp; 与</p>
-<p>~ 取反</p>
-<p>^ 异或 是不是不一样，相同为0，不同为1，可以视为不带进位的加法。异或0，为本身，异或1，为取反</p>
-<p>应该达到的水平，对int进行位运算的时候，眼中只有01串，看为01串，不用管本身是什么。</p>
-<p>去掉二进制最后一位，右移一位</p>
-<p>最后一位加0，左移一位</p>
-<p>最后加一个1，左移一位+1</p>
-<p>最后一位变成1，或1</p>
-<p>最后一位变成0，先或1，再减掉1</p>
-<p>最后一位取反，异或1</p>
-<p>右数第k位变成1，先把1左移k-1位，然后或1</p>
-<p>右数第k位变成0</p>
-<pre><code class="hljs x&(~(1<<(k-1)))```">
-右数第k位取反
-
-&#96;&#96;&#96;x^(1&lt;&lt;(k-1))</code></pre>
-
-<h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2><p>简而言之，每次都选局部最优解</p>
-<p>能够使用贪心算法的问题都能严格证明局部最优解就是全局最优解</p>
-<h3 id="第一题（没听全，应该很简单）"><a href="#第一题（没听全，应该很简单）" class="headerlink" title="第一题（没听全，应该很简单）"></a>第一题（没听全，应该很简单）</h3><p><img src="https://i.loli.net/2020/05/14/JLrp1k2AvK6zysm.png" srcset="/img/loading.gif" alt="image-20200514213918707"></p>
-<h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><p><img src="https://i.loli.net/2020/05/14/1emXREjvYl4zDTK.png" srcset="/img/loading.gif" alt="image-20200514214126456"></p>
-<p>按照字典序排序。但这个不是正确的  3 31 39. 最大为 39 33 1.对于这种情况的，先连接起来，再比较大小也就是比较331 313的大小。</p>
-<h3 id="第三题-区间覆盖（工作安排）"><a href="#第三题-区间覆盖（工作安排）" class="headerlink" title="第三题 -区间覆盖（工作安排）"></a>第三题 -区间覆盖（工作安排）</h3><p><img src="https://i.loli.net/2020/05/14/5XGu2vfFcbUYNkE.png" srcset="/img/loading.gif" alt="image-20200514214744728"></p>
-<p>贪心策略：选择结束时间尽量早的。</p>
-<p>证明：离散数学课本</p>
-<h3 id="第四题-活动安排"><a href="#第四题-活动安排" class="headerlink" title="第四题 活动安排"></a>第四题 活动安排</h3><p><img src="https://i.loli.net/2020/05/14/cEevu5jfbVBHiJg.png" srcset="/img/loading.gif" alt="image-20200514215441725"></p>
-<p>先取两件事AB</p>
-<p>当A在B前面，求出A的扣分，B 的扣分</p>
-<p>当B在A前面，求出B的扣分，A的扣分</p>
-<p>假设A在B前是最优解，解出要求</p>
-<h3 id="第五题-国王游戏"><a href="#第五题-国王游戏" class="headerlink" title="第五题 国王游戏"></a>第五题 国王游戏</h3><p><img src="https://i.loli.net/2020/05/14/89Oedhx7ZszHQmk.png" srcset="/img/loading.gif" alt="image-20200514220239896"></p>
-<p><img src="https://i.loli.net/2020/05/14/BSyZX4oYTraGmQ5.png" srcset="/img/loading.gif" alt="image-20200514220312802"></p>
-<p>同理，取AB两个人，交换这两个人的顺序不影响结果</p>
-<p>A在B前面，表示出A获得的奖赏①，B获得的奖赏②</p>
-<p>A在B前面，表示出A获得的奖赏③，B获得的奖赏④</p>
-<p>max(①，②)&lt;=max(③，④)</p>
-<p>则 max(③，④)=③，且③&gt;=max(①，②)</p>
-<p>解方程得到贪心的方法。</p>
+<table>
+<thead>
+<tr>
+<th>科目</th>
+<th>复习途径</th>
+<th>复习重点</th>
+<th>考试时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>中国近代史</td>
+<td>大作业，紧急DDL，课本</td>
+<td>整理课本</td>
+<td></td>
+</tr>
+<tr>
+<td>高等数学</td>
+<td>往年的期末题，今年的作业题</td>
+<td>公式，不同的题型</td>
+<td></td>
+</tr>
+<tr>
+<td>电子电路</td>
+<td>往年的期末题，今年的作业题</td>
+<td>公式，e的指数幂，电路分析</td>
+<td></td>
+</tr>
+<tr>
+<td>大学物理</td>
+<td>往年的期末题，今年的作业题</td>
+<td>公式，适用范围。</td>
+<td></td>
+</tr>
+<tr>
+<td>大学英语（听说</td>
+<td>课本的题目</td>
+<td>单词且单词</td>
+<td></td>
+</tr>
+<tr>
+<td>大学英语（读写</td>
+<td>课本单词</td>
+<td>单词，且单词</td>
+<td></td>
+</tr>
+<tr>
+<td>离散数学</td>
+<td>往年的期末题，今年的作业题</td>
+<td>看书，纯英文的的课本必须多看，然后作业题也是重点</td>
+<td></td>
+</tr>
+<tr>
+<td>西方音乐史</td>
+<td>大作业</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>复习日程表</p>
+<table>
+<thead>
+<tr>
+<th>科目</th>
+<th>复习时间</th>
+<th align="left">做的事情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>离散数学</td>
+<td>5月30日 —— 6月1日</td>
+<td align="left">看完课本</td>
+</tr>
+<tr>
+<td>高等数学</td>
+<td>5月31日 —— 结束</td>
+<td align="left">往年的期末考试题</td>
+</tr>
+<tr>
+<td>大学物理</td>
+<td>5月31日开始</td>
+<td align="left">重看PPT，整理笔记，写之前的作业</td>
+</tr>
+<tr>
+<td>大学英语（听说，读写</td>
+<td>5月31日 —— 6月4日</td>
+<td align="left">背单词，每个模块的 Topic 复习</td>
+</tr>
+<tr>
+<td>中国近代史</td>
+<td>6月1日 ——6月3日</td>
+<td align="left">大作业写完</td>
+</tr>
+<tr>
+<td>计算导论——第一阶段</td>
+<td>5月31日</td>
+<td align="left">学习多线程</td>
+</tr>
+<tr>
+<td>计算导论——第二阶段</td>
+<td>6月1日</td>
+<td align="left">看录课，做设计</td>
+</tr>
+<tr>
+<td>计算导论——第三阶段</td>
+<td>6月3日</td>
+<td align="left">写完</td>
+</tr>
+<tr>
+<td>电子电路</td>
+<td>先走走上面的的内容吧</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
 
             </article>
             <hr>
@@ -364,9 +327,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
-                    
-                      <a class="hover-with-bg" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%9E%9A%E4%B8%BE%E8%B4%AA%E5%BF%83/">枚举贪心</a>
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
                     
                   </div>
                 
@@ -374,7 +335,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a>
                     
                   </div>
                 
@@ -387,18 +348,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/15/%E7%89%9B%E5%AE%A2%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3%EF%BC%88%E4%B8%80%EF%BC%89/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">牛客算法题解（一）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/05/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E5%85%AD%EF%BC%89/">
-                        <span class="hidden-mobile">数据结构与算法（六）</span>
+                      <a href="/2020/05/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E5%8D%81%EF%BC%89/">
+                        <span class="hidden-mobile">数据结构与算法（十）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -557,7 +512,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "算法公开课（一）&nbsp;",
+        "期末考试&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
